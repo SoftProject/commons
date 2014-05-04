@@ -33,6 +33,9 @@
         <plugins>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <pushChanges>false</pushChanges>
+                </configuration>
 <!--                <configuration>
                     <tagBase>http://xp-dev.com/svn/java-commons-util/tags/</tagBase>
                 </configuration>-->
