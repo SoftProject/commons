@@ -9,3 +9,4 @@
 /commons-http/target/
 /commons-invoice/target/
 /utils-sitemap/target/
+/utils-jdbc/src/test/resources/hsql/database.properties
