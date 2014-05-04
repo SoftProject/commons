@@ -16,9 +16,9 @@
         </developer>
     </developers>
     <url>https://github.com/SoftProject/commons</url>
-<!--    <scm>
+    <scm>
         <connection>scm:git:https://github.com/SoftProject/commons.git</connection>
-    </scm>-->
+    </scm>
 
 
     <build>
