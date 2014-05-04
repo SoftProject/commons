@@ -15,9 +15,9 @@
             <email>alapierre@soft-project.pl</email>
         </developer>
     </developers>
-    <url>http://xp-dev.com/svn/java-commons-util</url>
+    <url>https://github.com/SoftProject/commons</url>
     <scm>
-        <connection>scm:svn:http://xp-dev.com/svn/java-commons-util</connection>
+        <connection>scm:git:https://github.com/SoftProject/commons.git</connection>
     </scm>
 
 
@@ -33,9 +33,9 @@
         <plugins>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
-                <configuration>
+<!--                <configuration>
                     <tagBase>http://xp-dev.com/svn/java-commons-util/tags/</tagBase>
-                </configuration>
+                </configuration>-->
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
