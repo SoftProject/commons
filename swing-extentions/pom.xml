@@ -87,7 +87,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -96,17 +95,15 @@
             <version>1.2.1</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>pl.com.softproject.utils</groupId>
             <artifactId>utils-xml</artifactId>
-            <version>${project.version}</version>
+            <version>1.0.6-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>pl.com.softproject.utils</groupId>
             <artifactId>swing-worker</artifactId>
             <version>0.0.2-SNAPSHOT</version>
         </dependency>
-    
-    
         <dependency>
             <groupId>org.swinglabs.swingx</groupId>
             <artifactId>swingx-all</artifactId>
