@@ -4,7 +4,7 @@
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>java-common-utilities</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.4</version>
+    <version>1.0.5-SNAPSHOT</version>
     <name>java-common-utilities</name>
     <organization>
         <name>SoftProject</name>
@@ -23,7 +23,7 @@
 
     <build>
         <extensions>
-      <!-- Enabling the use of FTP -->
+            <!-- Enabling the use of FTP -->
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ftp</artifactId>
@@ -36,12 +36,13 @@
                 <configuration>
                     <pushChanges>false</pushChanges>
                 </configuration>
-<!--                <configuration>
+                <!--                <configuration>
                     <tagBase>http://xp-dev.com/svn/java-commons-util/tags/</tagBase>
                 </configuration>-->
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
                     <source>1.5</source>
                     <target>1.5</target>
@@ -52,6 +53,86 @@
 
     <dependencyManagement>
         <dependencies>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>commons-dictionary</artifactId>
+                <version>1.3</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.sodtproject.commons.invoice</groupId>
+                <artifactId>commons-invoice</artifactId>
+                <version>1.0</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>commons-http</artifactId>
+                <version>1.0</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>excel-exporter</artifactId>  
+                <version>1.0.13</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>swing-extentions</artifactId>
+                <version>1.0.4</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>swing-worker</artifactId>
+                <version>0.0.2</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>utils-hibernate</artifactId>
+                <version>1.0.7</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>utils-jdbc</artifactId>
+                <version>1.0.4</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>utils-sitemap</artifactId>
+                <version>1.0.4</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>utils-text</artifactId>
+                <version>1.0.4</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <dependency>
+                <groupId>pl.com.softproject.utils</groupId>
+                <artifactId>utils-xml</artifactId>
+                <version>1.0.6</version>
+                <optional>true</optional>
+            </dependency>
+            
+            <!-- -->
+            
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -90,36 +171,13 @@
         <module>commons-dictionary</module>
         <module>swing-worker</module>
         <module>swing-extentions</module>
-    <module>commons-http</module>
-    <module>commons-invoice</module>
-    <module>utils-sitemap</module>
-  </modules>
+        <module>commons-http</module>
+        <module>commons-invoice</module>
+        <module>utils-sitemap</module>
+    </modules>
 
-    <!--pluginRepositories>
-        <pluginRepository>
-            <id>csartifactory</id>
-            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/libs-release</url>
-        </pluginRepository>
-    </pluginRepositories>
-    <repositories>
-        <repository>
-            <id>csartifactory-snapshots</id>
-            <name>artifactory server</name>
-            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/libs-snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>csartifactory</id>
-            <name>artifactory server</name>
-            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/libs-release</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories-->
     
+
     <pluginRepositories>
         <pluginRepository>
             <id>csartifactory</id>
@@ -159,46 +217,5 @@
             <url>scp://maven.pl.chartsearch.net/export/home0/maven/sites/chartsource-masterpom</url>
         </site-->
     </distributionManagement>
-
-    <!--distributionManagement>
-        <repository>
-            <id>softproject-maven</id>
-            <url>sftp://maven.softproject.com.pl</url>
-        </repository>
-        <snapshotRepository>
-            <id>softproject-maven</id>
-            <url>sftp://maven.softproject.com.pl</url>
-        </snapshotRepository>
-        <site>
-            <id>softproject-sites</id>
-            <url>sftp://sites.softproject.com.pl/java-common-utilities</url>
-        </site>
-    </distributionManagement-->
-    
-    <!--repositories>
-        <repository>
-            <id>soft-project-maven</id>
-            <name>SoftProject Public Maven Repozytory</name>
-            <url>http://maven.soft-project.pl</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <distributionManagement>
-        <repository>
-            <id>soft-project-maven</id>
-            <url>ftp://maven.soft-project.pl</url>
-        </repository>
-        <snapshotRepository>
-            <id>soft-project-maven</id>
-            <url>ftp://maven.soft-project.pl</url>
-        </snapshotRepository>
-        <site>
-            <id>soft-project-sites</id>
-            <url>ftp://maven.soft-project.pl/java-common-utilities</url>
-        </site>
-    </distributionManagement-->
 
 </project>
