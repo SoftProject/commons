@@ -10,3 +10,4 @@
 /commons-invoice/target/
 /utils-sitemap/target/
 /utils-jdbc/src/test/resources/hsql/database.properties
+/osticket-integration/target/

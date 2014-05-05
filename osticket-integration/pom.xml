@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pl.com.softproject.utils</groupId>
+        <artifactId>java-common-utilities</artifactId>
+        <version>1.0.5-SNAPSHOT</version>
+    </parent>
+    <groupId>pl.com.softproject.utils</groupId>
+    <artifactId>osticket-integration</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <name>osticket-integration</name>
+    
+    <developers>
+        <developer>
+            <name>Adrian Lapierre</name>
+            <email>alapierre@soft-project.pl</email>
+        </developer>
+        
+        <developer>
+            <name>Marcin Jasiński</name>
+            <email>mjsainski@soft-project.pl</email>
+        </developer>
+        
+    </developers>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        
+        <dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-client</artifactId>
+		<version>1.18.1</version>
+	</dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+    </dependencies>
+</project>
