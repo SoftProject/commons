@@ -90,10 +90,11 @@
         <module>commons-dictionary</module>
         <module>swing-worker</module>
         <module>swing-extentions</module>
-    <module>commons-http</module>
-    <module>commons-invoice</module>
-    <module>utils-sitemap</module>
-  </modules>
+        <module>commons-http</module>
+        <module>commons-invoice</module>
+        <module>utils-sitemap</module>
+        <module>commons-jasypt</module>
+    </modules>
 
     <!--pluginRepositories>
         <pluginRepository>
