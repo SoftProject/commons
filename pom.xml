@@ -123,23 +123,23 @@
     
     <pluginRepositories>
         <pluginRepository>
-            <id>csartifactory</id>
-            <url>http://repo.softproject.com.pl/artifactory/libs-release</url>
+            <id>sp-artifactory-plugins</id>
+            <url>http://repo.softproject.com.pl/artifactory/public-release-local/</url>
         </pluginRepository>
     </pluginRepositories>
     <repositories>
         <repository>
-            <id>csartifactory-snapshots</id>
+            <id>sp-artifactory-snapshots</id>
             <name>artifactory server</name>
-            <url>http://repo.softproject.com.pl/artifactory/libs-snapshot</url>
+            <url>http://repo.softproject.com.pl/artifactory/public-snapshot-local/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
         </repository>
         <repository>
-            <id>csartifactory</id>
+            <id>sp-artifactory-release</id>
             <name>artifactory server</name>
-            <url>http://repo.softproject.com.pl/artifactory/libs-release</url>
+            <url>http://repo.softproject.com.pl/artifactory/public-release-local/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -149,11 +149,11 @@
     <distributionManagement>
         <repository>
             <id>csdeploy</id>
-            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/libs-release-local</url>
+            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/public-release-local</url>
         </repository>
         <snapshotRepository>
             <id>cssnapshot</id>
-            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/libs-snapshot-local</url>
+            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/public-snapshot-local</url>
         </snapshotRepository>
         <!--site>
             <id>cssitedeploy</id>
