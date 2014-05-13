@@ -12,3 +12,4 @@
 /utils-jdbc/src/test/resources/hsql/database.properties
 /osticket-integration/target/
 /payu/target/
+/commons-jasypt/target/

@@ -5,6 +5,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>pl.com.softproject.utils</groupId>
+        <artifactId>java-common-utilities</artifactId>
+        <version>1.0.5-SNAPSHOT</version>
+    </parent>
+
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>osticket-integration</artifactId>
     <version>1.0.1-SNAPSHOT</version>
