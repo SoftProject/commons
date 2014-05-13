@@ -16,6 +16,7 @@ public class ColumnDescriptor {
     private String headerName;
     private String propertyName;
     private String excelFormatMask;
+    private ColumnValueFormatter columnValueFormatter;
 
     /**
      *
@@ -32,6 +33,12 @@ public class ColumnDescriptor {
         this.propertyName = propertyName;
         this.excelFormatMask = excelFormatMask;
     }
+    
+    public ColumnDescriptor(String headerName, String propertyName, ColumnValueFormatter formatter) {
+        this.headerName = headerName;
+        this.propertyName = propertyName;
+        this.columnValueFormatter = formatter;
+    }
 
     public String getExcelFormatMask() {
         return excelFormatMask;
@@ -47,6 +54,14 @@ public class ColumnDescriptor {
 
     public boolean isMaskSet() {
         return excelFormatMask != null;
+    }
+
+    public ColumnValueFormatter getColumnValueFormatter() {
+        return columnValueFormatter;
+    }
+
+    public void setColumnValueFormatter(ColumnValueFormatter columnValueFormatter) {
+        this.columnValueFormatter = columnValueFormatter;
     }
 
 }

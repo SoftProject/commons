@@ -1,21 +1,28 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pl.com.softproject.utils</groupId>
+        <artifactId>java-common-utilities</artifactId>
+        <version>1.0.5-SNAPSHOT</version>
+    </parent>
     <groupId>pl.com.softproject.utils</groupId>
-    <artifactId>java-common-utilities</artifactId>
-    <version>1.0.4</version>
-  </parent>
-  <groupId>pl.com.softproject.utils</groupId>
-  <artifactId>utils-sitemap</artifactId>
-  <version>1.0.4</version>
-  <name>utils-sitemap</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <artifactId>utils-sitemap</artifactId>
+    <version>1.0.5-SNAPSHOT</version>
+    <name>utils-sitemap</name>
+    
+    <developers>
+        <developer>
+            <name>Adrian Lapierre</name>
+            <email>alapierre@soft-project.pl</email>
+        </developer>
+    </developers>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
   
-  <build>
+    <build>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -40,27 +47,25 @@
                 </executions>
                 <configuration>
                     <generateDirectory>${basedir}/src/main/gen</generateDirectory>
-                    <!--generatePackage>pl.com.softproject.dmhlilu.model</generatePackage-->
                 </configuration>
             </plugin> 
             
         </plugins>
     </build>
   
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>utils-xml</artifactId>
-      <version>1.0.6</version>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>pl.com.softproject.utils</groupId>
+            <artifactId>utils-xml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+    </dependencies>
 </project>
