@@ -253,7 +253,11 @@ public class ExcelExporter {
             return;
         }
 
-        if(property instanceof Date) {
+        if(columnDescriptor.getColumnValueFormatter() != null) {
+            HSSFCell cell = row.createCell(currentColumnNumber++);
+            cell.setCellValue(columnDescriptor.getColumnValueFormatter().format(property));
+            cell.setCellStyle(determinateCellStyle(columnDescriptor, styleDefault));
+        } else if(property instanceof Date) {
             HSSFCell cell = row.createCell(currentColumnNumber++);
             cell.setCellValue((Date)property);
             cell.setCellStyle(determinateCellStyle(columnDescriptor, styleDate));

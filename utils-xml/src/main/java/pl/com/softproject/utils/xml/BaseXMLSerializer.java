@@ -15,7 +15,6 @@ import javax.xml.validation.SchemaFactory;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
-import sun.misc.IOUtils;
 
 
 
@@ -23,6 +22,7 @@ import sun.misc.IOUtils;
  * Klasa serializera dla pliku XML wniosku EURO
  * 
  * @author adrian
+ * @param <T>
  */
 public class BaseXMLSerializer<T> {
 
