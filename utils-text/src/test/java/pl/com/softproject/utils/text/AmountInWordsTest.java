@@ -21,7 +21,7 @@ public class AmountInWordsTest {
     public void testToWordsZero() {
         System.out.println("toWordsZero");
         double kwota = 0.0;
-        String expResult = "zero z³ zero gr";
+        String expResult = "zero zÅ‚ zero gr";
         String result = AmountInWords.toWords(kwota);
         System.out.println("result: " + result);
         assertEquals(expResult, result);
@@ -32,7 +32,7 @@ public class AmountInWordsTest {
     public void testToWords100() {
         System.out.println("toWords");
         double kwota = 123.50;
-        String expResult = "sto dwadzieœcia trzy z³ piêædziesi¹t gr";
+        String expResult = "sto dwadzieÅ›cia trzy zÅ‚ piÄ™Ä‡dziesiÄ…t gr";
         String result = AmountInWords.toWords(kwota);
         System.out.println("result: " + result);
         assertEquals(expResult, result);
@@ -42,7 +42,7 @@ public class AmountInWordsTest {
     public void testToWords126() {
         System.out.println("toWords");
         double kwota = 126.50;
-        String expResult = "sto dwadzieœcia szeœæ z³ piêædziesi¹t gr";
+        String expResult = "sto dwadzieÅ›cia szeÅ›Ä‡ zÅ‚ piÄ™Ä‡dziesiÄ…t gr";
         String result = AmountInWords.toWords(kwota);
         System.out.println("result: " + result);
         assertEquals(expResult, result);
@@ -52,7 +52,7 @@ public class AmountInWordsTest {
     public void testToWords101() {
         System.out.println("toWords");
         double kwota = 124.50;
-        String expResult = "sto dwadzieœcia cztery z³ piêædziesi¹t gr";
+        String expResult = "sto dwadzieÅ›cia cztery zÅ‚ piÄ™Ä‡dziesiÄ…t gr";
         String result = AmountInWords.toWords(kwota);
         System.out.println("result: " + result);
         assertEquals(expResult, result);
@@ -62,7 +62,7 @@ public class AmountInWordsTest {
     public void testToWords113() {
         System.out.println("toWords");
         double kwota = 113.20;
-        String expResult = "sto trzynaœcie z³ dwadzieœcia gr";
+        String expResult = "sto trzynaÅ›cie zÅ‚ dwadzieÅ›cia gr";
         String result = AmountInWords.toWords(kwota);
         System.out.println("result: " + result);
         assertEquals(expResult, result);
@@ -72,7 +72,7 @@ public class AmountInWordsTest {
     public void testToWords1() {
         System.out.println("toWords");
         double kwota = 3;
-        String expResult = "trzy z³ zero gr";
+        String expResult = "trzy zÅ‚ zero gr";
         String result = AmountInWords.toWords(kwota);
         System.out.println("result: " + result);
         assertEquals(expResult, result);
@@ -82,7 +82,7 @@ public class AmountInWordsTest {
     public void testToWords1000() {
         System.out.println("toWords");
         double kwota = 1237.24;
-        String expResult = "tysi¹c dwieœcie trzydzieœci siedem z³ dwadzieœcia cztery gr";
+        String expResult = "tysiÄ…c dwieÅ›cie trzydzieÅ›ci siedem zÅ‚ dwadzieÅ›cia cztery gr";
         String result = AmountInWords.toWords(kwota);
         System.out.println("result: " + result);
         assertEquals(expResult, result);
