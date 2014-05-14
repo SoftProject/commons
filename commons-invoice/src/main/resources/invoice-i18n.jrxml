@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="faktura-lilou" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="269"/>
+	<style name="styl_etykiet" mode="Opaque" forecolor="#000000" backcolor="#CCCCCC" hAlign="Center" vAlign="Middle" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<box>
+			<topPen lineWidth="0.75"/>
+		</box>
+	</style>
+	<subDataset name="items-datasource">
+		<queryString language="xPath">
+			<![CDATA[/invoice/items/item]]>
+		</queryString>
+		<field name="qty" class="java.lang.Integer">
+			<fieldDescription><![CDATA[qty]]></fieldDescription>
+		</field>
+		<field name="code" class="java.lang.String">
+			<fieldDescription><![CDATA[code]]></fieldDescription>
+		</field>
+		<field name="name" class="java.lang.String">
+			<fieldDescription><![CDATA[name]]></fieldDescription>
+		</field>
+		<field name="no" class="java.lang.String">
+			<fieldDescription><![CDATA[no]]></fieldDescription>
+		</field>
+		<field name="unit-name" class="java.lang.String">
+			<fieldDescription><![CDATA[unit-name]]></fieldDescription>
+		</field>
+		<field name="currency" class="java.lang.String">
+			<fieldDescription><![CDATA[currency]]></fieldDescription>
+		</field>
+		<field name="net-value" class="java.lang.Double">
+			<fieldDescription><![CDATA[net-value]]></fieldDescription>
+		</field>
+		<field name="vat-rate" class="java.lang.Double">
+			<fieldDescription><![CDATA[vat-rate]]></fieldDescription>
+		</field>
+		<field name="net-amount" class="java.lang.Double">
+			<fieldDescription><![CDATA[net-amount]]></fieldDescription>
+		</field>
+		<field name="vat-amount" class="java.lang.Double">
+			<fieldDescription><![CDATA[vat-amount]]></fieldDescription>
+		</field>
+		<field name="gross-amount" class="java.lang.Double">
+			<fieldDescription><![CDATA[gross-amount]]></fieldDescription>
+		</field>
+		<field name="foreign-curency" class="java.lang.String">
+			<fieldDescription><![CDATA[foreign-curency]]></fieldDescription>
+		</field>
+		<field name="foreign-unit-name" class="java.lang.String">
+			<fieldDescription><![CDATA[foreign-unit-name]]></fieldDescription>
+		</field>
+		<field name="foreign-name" class="java.lang.String">
+			<fieldDescription><![CDATA[foreign-name]]></fieldDescription>
+		</field>
+		<field name="foreign-net-value" class="java.lang.Double">
+			<fieldDescription><![CDATA[foreign-net-value]]></fieldDescription>
+		</field>
+		<field name="foreign-net-amount" class="java.lang.Double">
+			<fieldDescription><![CDATA[foreign-net-amount]]></fieldDescription>
+		</field>
+		<field name="foreign-gross-amount" class="java.lang.Double">
+			<fieldDescription><![CDATA[foreign-gross-amount]]></fieldDescription>
+		</field>
+		<field name="foreign-vat-amount" class="java.lang.Double">
+			<fieldDescription><![CDATA[foreign-vat-amount]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="miejsce_wystawienia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Lieu de délivrance"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="data_sprzedazy" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Date de la vente"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="kopia_oryginal" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["originale"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="data_wystawienia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Date de délivrance"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sprzedawca" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Vendeur"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nabywca" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Client"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="warszawa" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Varsovie"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="faktura_vat" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Facture"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="no" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["No"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="symbol" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Code produit"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nazwa" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Description"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ilosc" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Quantité"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="jm" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Unité"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="waluta" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Devise"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cena_netto" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Prix HT"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vat_pr" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TVA %"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cena_brutto" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Valeur TTC"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Total"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="stawka_podatku" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["VTA %"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vat_war" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["TVA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="razem" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Total"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="waluta_dokumnetu" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Document émis en"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="kurs" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Cours de la devise"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="slownie" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["En lettres"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pozostalo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Reste à payer"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="termin_platnosci" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Maturité"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="podpis_sprzedawcy" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Signature du vendeur"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="podpis_klienta" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Signature du client"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="stopka" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Stopka"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lang" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["fr_FR"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="oryginal" class="java.lang.Boolean" isForPrompting="false">
+		<defaultValueExpression><![CDATA[true]]></defaultValueExpression>
+	</parameter>
+	<parameter name="kopia_kopia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["kopia"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="zaplacono" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Payé"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="vat_value" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["VAT"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="wartosc_netto" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Prix HT"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="wartosc_brutto" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Prix TTC"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="logo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["logo.jpg"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/invoice]]>
+	</queryString>
+	<field name="seller" class="java.lang.String">
+		<fieldDescription><![CDATA[seller]]></fieldDescription>
+	</field>
+	<field name="buyer" class="java.lang.String">
+		<fieldDescription><![CDATA[buyer]]></fieldDescription>
+	</field>
+	<field name="place-of-issue" class="java.lang.String">
+		<fieldDescription><![CDATA[place-of-issue]]></fieldDescription>
+	</field>
+	<field name="issue-date" class="java.lang.String">
+		<fieldDescription><![CDATA[issue-date]]></fieldDescription>
+	</field>
+	<field name="sell-date" class="java.lang.String">
+		<fieldDescription><![CDATA[sell-date]]></fieldDescription>
+	</field>
+	<field name="invoice-number" class="java.lang.String">
+		<fieldDescription><![CDATA[invoice-number]]></fieldDescription>
+	</field>
+	<field name="total-amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/total-amount]]></fieldDescription>
+	</field>
+	<field name="currency" class="java.lang.String">
+		<fieldDescription><![CDATA[summary/currency]]></fieldDescription>
+	</field>
+	<field name="foreign-currency" class="java.lang.String">
+		<fieldDescription><![CDATA[summary/foreign-currency]]></fieldDescription>
+	</field>
+	<field name="currency-rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/currency-rate]]></fieldDescription>
+	</field>
+	<field name="total-amount-in-words" class="java.lang.String">
+		<fieldDescription><![CDATA[summary/total-amount-in-words]]></fieldDescription>
+	</field>
+	<field name="left-to-pay" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/left-to-pay]]></fieldDescription>
+	</field>
+	<field name="payment-date" class="java.lang.String">
+		<fieldDescription><![CDATA[summary/payment-date]]></fieldDescription>
+	</field>
+	<field name="days-to-pay" class="java.lang.String">
+		<fieldDescription><![CDATA[summary/days-to-pay]]></fieldDescription>
+	</field>
+	<field name="signer" class="java.lang.String">
+		<fieldDescription><![CDATA[summary/signer]]></fieldDescription>
+	</field>
+	<field name="net-value" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/net-value]]></fieldDescription>
+	</field>
+	<field name="foreign-net-value" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/foreign-net-value]]></fieldDescription>
+	</field>
+	<field name="tax-value" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/tax-value]]></fieldDescription>
+	</field>
+	<field name="foreign-tax-value" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/foreign-tax-value]]></fieldDescription>
+	</field>
+	<field name="gross-value" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/gross-value]]></fieldDescription>
+	</field>
+	<field name="foreign-gross-value" class="java.lang.Double">
+		<fieldDescription><![CDATA[summary/foreign-gross-value]]></fieldDescription>
+	</field>
+	<field name="tax-rate" class="java.lang.String">
+		<fieldDescription><![CDATA[summary/tax-rate]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="96" splitType="Stretch">
+			<textField>
+				<reportElement style="styl_etykiet" mode="Opaque" x="373" y="0" width="182" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{miejsce_wystawienia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" mode="Opaque" x="373" y="32" width="182" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{data_sprzedazy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" mode="Opaque" x="373" y="64" width="182" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{data_wystawienia}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="0" y="0" width="200" height="95"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="374" y="15" width="181" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{warszawa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="47" width="181" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sell-date}.substring( 0, 10 )]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="374" y="78" width="181" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{issue-date}.substring( 0, 10 )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="0" width="100" height="20"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{oryginal} ? $P{kopia_oryginal} : $P{kopia_kopia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="105">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1]]></printWhenExpression>
+			<textField>
+				<reportElement style="styl_etykiet" mode="Opaque" x="300" y="5" width="255" height="15"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$P{nabywca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" mode="Opaque" x="0" y="5" width="255" height="15"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA[$P{sprzedawca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="21" width="255" height="55"/>
+				<box>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seller}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="21" width="255" height="55"/>
+				<box>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{buyer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="84" width="553" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{faktura_vat} + " " + $F{invoice-number}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement style="styl_etykiet" x="2" y="1" width="36" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="39" y="1" width="75" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{symbol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="115" y="1" width="143" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nazwa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="259" y="1" width="41" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ilosc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="301" y="1" width="39" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{jm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="341" y="1" width="44" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{waluta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="386" y="1" width="34" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cena_netto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="421" y="1" width="40" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vat_pr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="462" y="1" width="37" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vat_value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="500" y="1" width="54" height="31"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="555" height="38"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="items-datasource">
+						<dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}.subDataSource("/invoice/items/item")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="38" width="555">
+						<textField isStretchWithOverflow="true">
+							<reportElement stretchType="RelativeToTallestObject" x="2" y="2" width="37" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement>
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{no}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true">
+							<reportElement stretchType="RelativeToTallestObject" x="39" y="2" width="76" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement verticalAlignment="Top">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true">
+							<reportElement stretchType="RelativeToTallestObject" x="115" y="2" width="143" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement>
+								<font fontName="DejaVu Sans" pdfFontName="Helvetica" isPdfEmbedded="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{foreign-name} != null ? $F{foreign-name} : $F{name}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToTallestObject" x="258" y="2" width="42" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Top">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToTallestObject" x="300" y="2" width="39" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement textAlignment="Justified">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{foreign-unit-name}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToTallestObject" x="339" y="2" width="45" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement textAlignment="Center">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{foreign-curency}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToTallestObject" x="384" y="2" width="35" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[String.format("%,.2f", $F{foreign-net-value})]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToTallestObject" x="419" y="2" width="41" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement textAlignment="Right" verticalAlignment="Top">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[new DecimalFormat("0.00").format($F{vat-rate}) + " %"]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToTallestObject" x="460" y="2" width="38" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[String.format("%,.2f", $F{foreign-vat-amount})]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+							<reportElement stretchType="RelativeToTallestObject" x="498" y="2" width="55" height="36"/>
+							<box>
+								<bottomPen lineWidth="0.25"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[String.format("%,.2f", $F{foreign-gross-amount})]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="13"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{stopka}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="13" width="555" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Printed by SoftPoject - www.softproject.com.pl]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="238" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement style="styl_etykiet" x="350" y="66" width="170" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total-amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="184" y="2" width="165" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{stawka_podatku}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="350" y="2" width="56" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wartosc_netto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="407" y="2" width="56" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vat_war}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="464" y="2" width="91" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wartosc_brutto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="17" width="139" height="36"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["VAT rate: " + $F{tax-rate} + " %"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="17" width="27" height="36"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{foreign-currency} + ( $P{lang} == "pl_PL" ? '\n' + $F{currency} : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="17" width="57" height="36"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f", $F{foreign-net-value}, $F{net-value}) +
+( $P{lang} == "pl_PL" ? String.format("\n%,.2f",$F{net-value}) : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="17" width="57" height="36"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f", $F{foreign-tax-value}) +
+( $P{lang} == "pl_PL" ? String.format("\n%,.2f", $F{tax-value}) : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="17" width="91" height="36"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%,.2f", $F{foreign-gross-value}) +
+( $P{lang} == "pl_PL" ? String.format("\n%,.2f",  $F{gross-value}) : "")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="184" y="66" width="166" height="20"/>
+				<textElement textAlignment="Left" markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{razem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="520" y="66" width="34" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{foreign-currency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="86" width="370" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{waluta_dokumnetu} + ": " + $F{foreign-currency} + ", " + $P{kurs} + ": 1 " + $F{foreign-currency} + " = " + String.format("%,.4f", $F{currency-rate})  + " " + $F{currency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="100" width="370" height="15">
+					<printWhenExpression><![CDATA[false]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{slownie} + ": " + $F{total-amount-in-words} + " " + $F{foreign-currency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="120" width="554" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[String.format("%s: %,.2f %s", $P{zaplacono}, $F{foreign-gross-value}, $F{foreign-currency}  )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="137" width="552" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{termin_platnosci} + ": " + $F{payment-date}.substring( 0, 10 )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="2" y="163" width="270" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{podpis_sprzedawcy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="178" width="270" height="42"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{signer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="styl_etykiet" x="284" y="163" width="270" height="15"/>
+				<textElement markup="none">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{podpis_klienta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="178" width="270" height="42"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="220" width="269" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="223" width="269" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
