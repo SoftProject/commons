@@ -118,7 +118,7 @@ public class StringUtilTest {
         boolean ok = true;
         
         System.out.println("testSplitLinesAsList");
-        List<String> res = StringUtil.splitLinesAsList("bardzo d³ugi tekst, ponad 30 znaków w jednej linii tekstu.. Trzeba go podzieliæ.", len);
+        List<String> res = StringUtil.splitLinesAsList("bardzo dÅ‚ugi tekst, ponad 30 znakÃ³w w jednej linii tekstu.. Trzeba go podzieliÄ‡.", len);
         
         for(String str : res) {
             System.out.println("'" + str + "' -> " + str.length());
@@ -127,7 +127,7 @@ public class StringUtilTest {
             }
         }
         
-        assert ok : "coœ nie tak";
+        assert ok : "coÅ› nie tak";
         
     }
     
@@ -139,7 +139,7 @@ public class StringUtilTest {
         
         
         System.out.println("testSplitLinesAsListNoWithChars");
-        List<String> res = StringUtil.splitLinesAsList("bardzod³ugitekst,ponad30znakówwjednejliniitekstu.Trzebagopodzieliæ.", len);
+        List<String> res = StringUtil.splitLinesAsList("bardzodÅ‚ugitekst,ponad30znakÃ³wwjednejliniitekstu.TrzebagopodzieliÄ‡.", len);
         
         for(String str : res) {
             System.out.println("'" + str + "' -> " + str.length());
@@ -148,7 +148,7 @@ public class StringUtilTest {
             }
         }
         
-        assert ok : "coœ nie tak";
+        assert ok : "coÅ› nie tak";
     }
     
     @Test
@@ -156,14 +156,14 @@ public class StringUtilTest {
         
         int len = 30;
         boolean ok = true;        
-        String str = "krótki tekst";
+        String str = "krÃ³tki tekst";
         
         System.out.println("testSplitLinesAsListShort");
         List<String> res = StringUtil.splitLinesAsList(str, len);
         
-        assert res.size() == 1 : "za du¿o elementów w res";
+        assert res.size() == 1 : "za duÅ¼o elementÃ³w w res";
         
-        assert res.get(0).equals(str) : "nieprawid³owy tekst";
+        assert res.get(0).equals(str) : "nieprawidÅ‚owy tekst";
         
         
         

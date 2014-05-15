@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:invoice xmlns:ns2="http://www.softproject.com.pl/commons/model/invoice" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://www.softproject.com.pl/commons/model/invoice http://schema.softproject.com.pl/commons-invoice/invoice.xsd">
+    <seller>SoftProject Sp. z o.o.
+Warszawska 109  
+05-092 Łomianki
+NIP: PL xxx-xxx-xx-xx</seller>
+    <buyer>Company
+145, street 
+75006 Paris
+NIP: FR xxxxxxxxxx</buyer>
+    <place-of-issue></place-of-issue>
+    <issue-date>2012-05-06Z</issue-date>
+    <sell-date>2012-05-06Z</sell-date>
+    <invoice-number>FS 1/05/2012</invoice-number>
+    <items>
+        <item>
+            <no>1</no>
+            <code>1/20/1</code>
+            <name>medalik</name>
+            <foreign-name>Médaillon</foreign-name>
+            <qty>50.0</qty>
+            <unit-name>szt.</unit-name>
+            <foreign-unit-name>unit</foreign-unit-name>
+            <currency>PLN</currency>
+            <foreign-curency xsi:type="ns2:currencyType">EUR</foreign-curency>
+            <net-value>33.5</net-value>
+            <foreign-net-value>8.0</foreign-net-value>
+            <vat-rate>0.0</vat-rate>
+            <net-amount>1675.2</net-amount>
+            <foreign-net-amount>400.0</foreign-net-amount>
+            <vat-amount>0.0</vat-amount>
+            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1675.2</gross-amount>
+            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">400.0</foreign-gross-amount>
+            <foreign-vat-amount>11.0</foreign-vat-amount>
+        </item>
+        <item>
+            <no>2</no>
+            <code>2/20/1</code>
+            <name>koniczynka</name>
+            <foreign-name>Trèfle</foreign-name>
+            <qty>50.0</qty>
+            <unit-name>szt.</unit-name>
+            <foreign-unit-name>unit</foreign-unit-name>
+            <currency>PLN</currency>
+            <foreign-curency xsi:type="ns2:currencyType">EUR</foreign-curency>
+            <net-value>29.32</net-value>
+            <foreign-net-value>7.0</foreign-net-value>
+            <vat-rate>0.0</vat-rate>
+            <net-amount>1465.8</net-amount>
+            <foreign-net-amount>350.0</foreign-net-amount>
+            <vat-amount>0.0</vat-amount>
+            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1465.8</gross-amount>
+            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">350.0</foreign-gross-amount>
+            <foreign-vat-amount>11.0</foreign-vat-amount>
+        </item>
+        <item>
+            <no>3</no>
+            <code>3/20/1</code>
+            <name>serce</name>
+            <foreign-name>Coeur</foreign-name>
+            <qty>100.0</qty>
+            <unit-name>szt.</unit-name>
+            <foreign-unit-name>unit</foreign-unit-name>
+            <currency>PLN</currency>
+            <foreign-curency xsi:type="ns2:currencyType">EUR</foreign-curency>
+            <net-value>33.5</net-value>
+            <foreign-net-value>8.0</foreign-net-value>
+            <vat-rate>0.0</vat-rate>
+            <net-amount>3350.4</net-amount>
+            <foreign-net-amount>800.0</foreign-net-amount>
+            <vat-amount>0.0</vat-amount>
+            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">3350.4</gross-amount>
+            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">800.0</foreign-gross-amount>
+            <foreign-vat-amount>11.0</foreign-vat-amount>
+        </item>
+    </items>
+    <summary>
+        <total-amount>4840.0</total-amount>
+        <currency>PLN</currency>
+        <foreign-currency>EUR</foreign-currency>
+        <currency-rate>4.188</currency-rate>
+        <total-amount-in-words>cztery tysiące osiemset czterdzieści EUR 0/100</total-amount-in-words>
+        <left-to-pay>4840.0</left-to-pay>
+        <payment-date>2012-06-05Z</payment-date>
+        <days-to-pay>0</days-to-pay>
+        <signer>Adrian Lapierre</signer>
+        <net-value>20269.92</net-value>
+        <foreign-net-value>4840.0</foreign-net-value>
+        <tax-value>0.0</tax-value>
+        <foreign-tax-value>0.0</foreign-tax-value>
+        <gross-value>20269.92</gross-value>
+        <foreign-gross-value>4840.0</foreign-gross-value>
+    </summary>
+</ns2:invoice>

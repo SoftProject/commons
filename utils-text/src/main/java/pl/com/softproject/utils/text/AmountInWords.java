@@ -9,32 +9,32 @@ package pl.com.softproject.utils.text;
  */
 public class AmountInWords {
 
-    // Tblica opisów wartoœci jednostek.
+    // Tblica opisÃ³w wartoÅ›ci jednostek.
     static String[] units = {
-        "zero", "jeden", "dwa", "trzy", "cztery", "piêæ", "szeœæ",
-        "siedem", "osiem", "dziewiêæ", "dziesiêæ", "jedenaœcie",
-        "dwanaœcie", "trzynaœcie", "czternaœcie", "piêtnaœcie",
-        "szesnaœcie", "siedemnaœcie", "osiemnaœcie", "dziewiêtnaœcie"
+        "zero", "jeden", "dwa", "trzy", "cztery", "piÄ™Ä‡", "szeÅ›Ä‡",
+        "siedem", "osiem", "dziewiÄ™Ä‡", "dziesiÄ™Ä‡", "jedenaÅ›cie",
+        "dwanaÅ›cie", "trzynaÅ›cie", "czternaÅ›cie", "piÄ™tnaÅ›cie",
+        "szesnaÅ›cie", "siedemnaÅ›cie", "osiemnaÅ›cie", "dziewiÄ™tnaÅ›cie"
     };
-    //Tablica opisów dziesi¹tek
+    //Tablica opisÃ³w dziesiÄ…tek
     static String[] tens = {
-        "dwadzieœcia", "trzydzieœci", "czterdzieœci", "piêædziesi¹t",
-        "szeœædziesi¹t", "siedemdziesi¹t", "osiemdziesi¹t",
-        "dziewiêædziesi¹t"
+        "dwadzieÅ›cia", "trzydzieÅ›ci", "czterdzieÅ›ci", "piÄ™Ä‡dziesiÄ…t",
+        "szeÅ›Ä‡dziesiÄ…t", "siedemdziesiÄ…t", "osiemdziesiÄ…t",
+        "dziewiÄ™Ä‡dziesiÄ…t"
     };
-    //Tablica obisów setek
+    //Tablica obisÃ³w setek
     static String[] hundreds = {
-        "", "sto", "dwieœcie", "trzysta", "czterysta", "piêæset",
-        "szeœæset", "siedemset", "osiemset", "dziewiêæset"
+        "", "sto", "dwieÅ›cie", "trzysta", "czterysta", "piÄ™Ä‡set",
+        "szeÅ›Ä‡set", "siedemset", "osiemset", "dziewiÄ™Ä‡set"
     };
-    //Dwuwymiarowa tablica tysiêcy,milionów,miliarów ...
+    //Dwuwymiarowa tablica tysiÄ™cy,milionÃ³w,miliarÃ³w ...
     static String[][] otherUnits = {
-        {"tysi¹c", "tysi¹ce", "tysiêcy"},
-        {"milion", "miliony", "milionów"},
-        {"miliard", "miliardy", "miliardów"}
+        {"tysiÄ…c", "tysiÄ…ce", "tysiÄ™cy"},
+        {"milion", "miliony", "milionÃ³w"},
+        {"miliard", "miliardy", "miliardÃ³w"}
     };
 
-    //Konwersja ma³ych liczb ....
+    //Konwersja maÅ‚ych liczb ....
     private static String smallValueToWords(int n) {
         if (n == 0) {
             return null;
@@ -50,7 +50,7 @@ public class AmountInWords {
             n -= temp * 100;
         }
 
-        // Konwertuj dziesi¹tki i jednoœci.
+        // Konwertuj dziesiÄ…tki i jednoÅ›ci.
 
         if (n > 0) {
             if (valueInWords.length() > 0) {
@@ -58,13 +58,13 @@ public class AmountInWords {
             }
 
             if (n < 20) {
-                //  Liczby poni¿ej 20 przekonwertuj na podstawie
-                //  tablicy jednoœci.
+                //  Liczby poniÅ¼ej 20 przekonwertuj na podstawie
+                //  tablicy jednoÅ›ci.
 
                 valueInWords.append(units[n]);
             } else {
-                //  Wiêksze liczby przekonwertuj ³¹cz¹c nazwy
-                //  krotnoœci dziesi¹tek z nazwami jednoœci.
+                //  WiÄ™ksze liczby przekonwertuj Å‚Ä…czÄ…c nazwy
+                //  krotnoÅ›ci dziesiÄ…tek z nazwami jednoÅ›ci.
                 valueInWords.append(tens[(n / 10) - 2]);
                 int lastDigit = n % 10;
 
@@ -77,7 +77,7 @@ public class AmountInWords {
         return valueInWords.toString();
     }
 
-    //Obliczenia dla du¿ych liczb ... i odmiana prawid³owa ich wartoœci..
+    //Obliczenia dla duÅ¼ych liczb ... i odmiana prawidÅ‚owa ich wartoÅ›ci..
     private static int GetBigUnitIndex(long n) {
         int lastDigit = (int) n % 10;
 
@@ -94,8 +94,8 @@ public class AmountInWords {
         long divisor = (long) Math.pow(1000, (long) level + 1);
 
         if (divisor <= n) {
-            //  Jeœli liczbê da siê podzieliæ przez najbli¿sz¹
-            //  potêgê 1000, kontynuuj rekurencjê.
+            //  JeÅ›li liczbÄ™ da siÄ™ podzieliÄ‡ przez najbliÅ¼szÄ…
+            //  potÄ™gÄ™ 1000, kontynuuj rekurencjÄ™.
 
             n = processNumericValue(valueInWords, n, level + 1);
             smallValue = (int) (n / divisor);
@@ -146,7 +146,7 @@ public class AmountInWords {
             kwota = kwota * -1;
         }
         String strKwotaSl;
-        strKwotaSl = toWords(liczba_zlotych(kwota)) + " z³ " + toWords(liczba_groszy(kwota)) + " gr";
+        strKwotaSl = toWords(liczba_zlotych(kwota)) + " zÅ‚ " + toWords(liczba_groszy(kwota)) + " gr";
         return strKwotaSl;
     }
     

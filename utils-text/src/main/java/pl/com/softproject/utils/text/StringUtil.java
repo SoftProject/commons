@@ -218,7 +218,7 @@ public class StringUtil {
     }
     
     /**
-     * Dzieli podany ci¹g na linie nie d³u¿sze ni¿ podana iloœæ znaków.
+     * Dzieli podany ciÄ…g na linie nie dÅ‚uÅ¼sze niÅ¼ podana iloÅ›Ä‡ znakÃ³w.
      *
      * @param str
      * @param lineSize
@@ -252,7 +252,7 @@ public class StringUtil {
         }
         if(line.length() > 0 && line.length() < lineSize) {
             res.add(line.toString().trim());
-        } else { // nie ma spacji - dzielimy po sta³ej d³ugoœci znaków
+        } else { // nie ma spacji - dzielimy po staÅ‚ej dÅ‚ugoÅ›ci znakÃ³w
             for(int i = 0; i<str.length(); i +=lineSize ) {
                 if(i+lineSize < str.length()) {
                     res.add(str.substring(i, i+lineSize));

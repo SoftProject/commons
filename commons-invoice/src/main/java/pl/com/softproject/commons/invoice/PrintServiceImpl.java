@@ -42,28 +42,6 @@ public class PrintServiceImpl {
         this.resource = resource;
     }
 
-    protected void print(File xmlSource, int copys, javax.print.PrintService printer, String selectExpression, String lang, boolean oryginal) throws RuntimeException, PrinterException {
-
-        HashMap params = (HashMap) langUtil.loadLang(lang);
-
-        params.put("oryginal", oryginal);
-        params.put("lang", lang);
-        printByDefaultPrinter(xmlSource, copys, selectExpression, params);
-
-    }
-
-    protected void print(File xmlSource, int copys, javax.print.PrintService printer, String selectExpression, String lang) throws RuntimeException, PrinterException {
-
-        HashMap params = (HashMap) langUtil.loadLang(lang);
-        params.put("lang", lang);
-        printByDefaultPrinter(xmlSource, copys, selectExpression, params);
-
-    }
-
-    protected void print(File xmlSource, int copys, javax.print.PrintService printer, String selectExpression) throws RuntimeException, PrinterException {
-        logger.debug("Print");
-        printByDefaultPrinter(xmlSource, copys, selectExpression);
-    }
 
     private File createXMLTempFile(Invoice invoice)  {
         File tmpFile;
@@ -82,21 +60,24 @@ public class PrintServiceImpl {
         return tmpFile;
     }
     
-    public void printBySelectedPrinter(Invoice invoice, int copys, javax.print.PrintService printer) throws RuntimeException, PrinterException, IOException {
+    public void printBySelectedPrinter(Invoice invoice, int copys, javax.print.PrintService printer, String lang, boolean oryginal) throws RuntimeException, PrinterException, IOException {
         File file = createXMLTempFile(invoice);
-        printBySelectedPrinter(file, copys, printer);
+        printBySelectedPrinter(file, copys, printer, lang, oryginal);
     }
 
-    public void printBySelectedPrinter(File xmlSource, int copys, javax.print.PrintService printer) throws RuntimeException, PrinterException, IOException {
+    public void printBySelectedPrinter(File xmlSource, int copys, javax.print.PrintService printer, String lang, boolean oryginal) throws RuntimeException, PrinterException, IOException {
         try {
-            HashMap hm = new HashMap();
-
+            
+            HashMap params = (HashMap) langUtil.loadLang(lang);
+            
+            params.put("oryginal", oryginal);
+            params.put("lang", lang);
+            
             JRXmlDataSource ds = new JRXmlDataSource(xmlSource, "/invoice");
             ds.setDatePattern("yyyy-MM-dd'Z'");
             ds.setNumberPattern("###0.00;-###0.00");
             ds.setLocale(Locale.US);
 
-            //ds.subDataSource("/suite/items/item");
             PrinterJob job = PrinterJob.getPrinterJob();
             job.setPrintService(printer);
             //job.printDialog();
@@ -105,13 +86,7 @@ public class PrintServiceImpl {
             printRequestAttributeSet.add(new Copies(copys));
 
             //printRequestAttributeSet.add(MediaSizeName.ISO_A4);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(resource.getInputStream(), hm, ds);
-//            jasperPrint.setPageWidth(1450);
-//            jasperPrint.setLeftMargin(0);
-//            jasperPrint.setRightMargin(0);
-//            jasperPrint.setBottomMargin(0);
-//            jasperPrint.setTopMargin(0);
-//            jasperPrint.setPageHeight(100);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(resource.getInputStream(), params, ds);
 
             JRPrintServiceExporter exporter;
             exporter = new JRPrintServiceExporter();
@@ -123,17 +98,10 @@ public class PrintServiceImpl {
             exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PAGE_DIALOG, Boolean.FALSE);
             exporter.setParameter(JRPrintServiceExporterParameter.DISPLAY_PRINT_DIALOG, Boolean.TRUE);
             exporter.exportReport();
-
-            //JasperPrintManager.printReport(print, true);
+           
         } catch (JRException ex) {
-            //logger.error("Error generating raport " +ex.getMessage());
             throw new RuntimeException(ex.getMessage(), ex);
         }
-    }
-    
-    protected void printByDefaultPrinter(File xmlSource, int copys, String selectExpression) {
-        HashMap params = new HashMap();
-        printByDefaultPrinter(xmlSource, copys, selectExpression, params);
     }
     
     public void printByDefaultPrinter(Invoice invoice, int copys, String lang, boolean oryginal) {
@@ -158,18 +126,14 @@ public class PrintServiceImpl {
             }
 
             JRXmlDataSource ds = new JRXmlDataSource(xmlSource, selectExpression);
-            //ds.subDataSource("/suite/items/item");
-
+            
             ds.setDatePattern("yyyy-MM-dd'Z'");
             ds.setNumberPattern("###0.00;-###0.00");
             ds.setLocale(Locale.US);
-
-            //HashMap params = new HashMap();
-            //params.put(JRXPathQueryExecuterFactory.PARAMETER_XML_DATA_DOCUMENT, document);
-            //params.put(JRXPathQueryExecuterFactory.XML_DATE_PATTERN, "yyyy-MM-dd");
+            
             params.put(JRXPathQueryExecuterFactory.XML_NUMBER_PATTERN, "#,##0.##");
             params.put(JRXPathQueryExecuterFactory.XML_LOCALE, Locale.US);
-            //params.put(JRParameter.REPORT_LOCALE, Locale.US);
+            
 
             JasperPrint print = null;
 
@@ -193,15 +157,6 @@ public class PrintServiceImpl {
             logger.error(ex.getMessage(), ex);
             throw new RuntimeException(ex.getMessage(), ex);
         }
-    }
-
-    public void exportPDF(Invoice invoice, String destFileName) {
-        exportPDF(createXMLTempFile(invoice), destFileName);
-    }
-    
-    public void exportPDF(File xmlSource, String destFileName) {
-        HashMap params = new HashMap();
-        exportPDF(xmlSource, destFileName, "/invoice", params);
     }
 
     public void exportPDFi18n(Invoice invoice, String destFileName, String lang, boolean oryginal) {

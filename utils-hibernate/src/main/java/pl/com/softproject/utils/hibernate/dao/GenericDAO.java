@@ -54,30 +54,30 @@ public interface GenericDAO <T, PK extends Serializable> {
     public List<T> searchAllOrdered(final String sortProperity, final boolean ascending, final boolean distinct);
     
     /**
-     * Wyszukuje encje wed³ug podanego przyk³adu. Wszystkie w³aœciwoœci, ró¿ne od null i 0 
-     * bêd¹ brane pod uwagê. Do porównywania stringów u¿ywany jest operator like, wielkoœæ znaków
+     * Wyszukuje encje wedÅ‚ug podanego przykÅ‚adu. Wszystkie wÅ‚aÅ›ciwoÅ›ci, rÃ³Å¼ne od null i 0 
+     * bÄ™dÄ… brane pod uwagÄ™. Do porÃ³wnywania stringÃ³w uÅ¼ywany jest operator like, wielkoÅ›Ä‡ znakÃ³w
      * jest ignorowana.
      * 
-     * @param exampleEntity przyk³adowa encja
+     * @param exampleEntity przykÅ‚adowa encja
      * @return lista encji
      */
     public List<T> searchByExample(final T exampleEntity);
     
     /**
-     * Wyszukuje encje wed³ug podanego przyk³adu i zwraca posortowan¹ listê
-     * @param exampleEntity przyk³adowa encja
-     * @param sortProperity nazwa w³aœciwoœci po któej ma siê sotrowaæ
-     * @param ascending czy rosn¹co czy malej¹co
+     * Wyszukuje encje wedÅ‚ug podanego przykÅ‚adu i zwraca posortowanÄ… listÄ™
+     * @param exampleEntity przykÅ‚adowa encja
+     * @param sortProperity nazwa wÅ‚aÅ›ciwoÅ›ci po ktÃ³ej ma siÄ™ sotrowaÄ‡
+     * @param ascending czy rosnÄ…co czy malejÄ…co
      * @return
      */
     public List<T> searchByExample(final T exampleEntity, String sortProperity, boolean ascending);
     
     /**
-     * Wyszukuje encje wed³ug podanego przyk³adu. W³aœciwoœci o nazwach podanych w  excludeProperty
-     * nie bêd¹ porównywane.
+     * Wyszukuje encje wedÅ‚ug podanego przykÅ‚adu. WÅ‚aÅ›ciwoÅ›ci o nazwach podanych w  excludeProperty
+     * nie bÄ™dÄ… porÃ³wnywane.
      * 
-     * @param exampleEntity przyk³adowa encja
-     * @param excludeProperty lista w³aœciwoœci, które maj¹ nie byæ uwzglêdnione
+     * @param exampleEntity przykÅ‚adowa encja
+     * @param excludeProperty lista wÅ‚aÅ›ciwoÅ›ci, ktÃ³re majÄ… nie byÄ‡ uwzglÄ™dnione
      * @return lista encji
      */
     public List<T> searchByExample(final T exampleEntity, List<String> excludeProperty);
