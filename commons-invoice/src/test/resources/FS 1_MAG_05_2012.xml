@@ -32,6 +32,7 @@ NIP: FR xxxxxxxxxx</buyer>
             <vat-amount>0.0</vat-amount>
             <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1675.2</gross-amount>
             <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">400.0</foreign-gross-amount>
+            <foreign-vat-amount>11.0</foreign-vat-amount>
         </item>
         <item>
             <no>2</no>
@@ -51,6 +52,7 @@ NIP: FR xxxxxxxxxx</buyer>
             <vat-amount>0.0</vat-amount>
             <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1465.8</gross-amount>
             <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">350.0</foreign-gross-amount>
+            <foreign-vat-amount>11.0</foreign-vat-amount>
         </item>
         <item>
             <no>3</no>
@@ -70,6 +72,7 @@ NIP: FR xxxxxxxxxx</buyer>
             <vat-amount>0.0</vat-amount>
             <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">3350.4</gross-amount>
             <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">800.0</foreign-gross-amount>
+            <foreign-vat-amount>11.0</foreign-vat-amount>
         </item>
     </items>
     <summary>
