@@ -196,7 +196,7 @@
     <pluginRepositories>
         <pluginRepository>
             <id>sp-artifactory-plugins</id>
-            <url>http://repo.softproject.com.pl/artifactory/public-release-local/</url>
+            <url>http://repo.softproject.com.pl/artifactory/public/</url>
         </pluginRepository>
     </pluginRepositories>
     <repositories>
