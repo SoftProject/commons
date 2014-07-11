@@ -30,7 +30,7 @@ public class PrintServiceImplTest {
         File file = File.createTempFile("invoice", ".pdf");
         printServiceImpl.exportPDFi18n(new File("src/test/resources/FS 1_MAG_05_2012.xml"), file.getAbsolutePath(), "pl_PL");
         
-        Desktop.getDesktop().open(file);
+        //Desktop.getDesktop().open(file);
         
         System.out.println(file);
     }

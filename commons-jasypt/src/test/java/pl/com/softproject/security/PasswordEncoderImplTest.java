@@ -25,6 +25,11 @@ public class PasswordEncoderImplTest {
     private PasswordEncoder passwordEncoder;
 
     @Test
+    public void test() {
+        
+    }
+    
+    //@Test
     public void testEncodingDecoding() {
 
         String encoded = passwordEncoder.encode("1qaz@WSXcde3");
