@@ -18,6 +18,14 @@
             <name>Marcin Jasinski</name>
             <email>mjasinski@soft-project.pl</email>
         </developer>
+        <developer>
+            <name>Leszek Bednorz</name>
+            <email>lbednorz@soft-project.pl</email>
+        </developer>
+        <developer>
+            <name>Rafał Cugowski</name>
+            <email>rcugowski@soft-project.pl</email>
+        </developer>
     </developers>
     <url>https://github.com/SoftProject/commons</url>
     <scm>
