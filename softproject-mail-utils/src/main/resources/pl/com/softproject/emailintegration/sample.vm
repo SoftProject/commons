@@ -1,0 +1,10 @@
+<html>
+<body>
+<h3>Witaj ${user.userName}!</h3>
+
+<div>
+   Twoje nowe konto email to: <a href="mailto:${user.emailAddress}">${user.emailAddress}</a>.
+</div>
+</body>
+
+</html>
