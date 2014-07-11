@@ -201,21 +201,14 @@
     </pluginRepositories>
     <repositories>
         <repository>
-            <id>sp-artifactory-snapshots</id>
+            <id>sp-artifactory-public</id>
             <name>artifactory server</name>
-            <url>http://repo.softproject.com.pl/artifactory/public-snapshot-local/</url>
+            <url>http://repo.softproject.com.pl/artifactory/public/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>sp-artifactory-release</id>
-            <name>artifactory server</name>
-            <url>http://repo.softproject.com.pl/artifactory/public-release-local/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
+        
     </repositories>
 
     <distributionManagement>
