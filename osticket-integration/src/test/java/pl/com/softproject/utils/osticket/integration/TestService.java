@@ -1,23 +1,16 @@
-/**
- * This file is part of osTicketIntegration.
- *
- * (c) 2014 SoftProject
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 package pl.com.softproject.utils.osticket.integration;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.com.softproject.utils.osticket.integration.config.OsTicketConfig;
 import pl.com.softproject.utils.osticket.integration.encoder.Base64FileEncoder;
 import pl.com.softproject.utils.osticket.integration.model.Ticket;
 import pl.com.softproject.utils.osticket.integration.service.OsTicketIntegrationServiceImpl;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class TestJackson
@@ -25,16 +18,12 @@ import pl.com.softproject.utils.osticket.integration.service.OsTicketIntegration
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  * @author Marcin Jasinski <mkjasinski@gmail.com>
  */
+@Ignore
 public class TestService {
 
     private OsTicketIntegrationServiceImpl osTicketIntegrationService = new OsTicketIntegrationServiceImpl();
     private List<File> files = new ArrayList<>();
 
-    @Test
-    public void test() {
-        
-    }
-    
     public TestService() {
         // url without api/tickets.json
         String url = null;
@@ -44,18 +33,19 @@ public class TestService {
         // file path to attach
         File pathToFile = null;
 
-//        Assert.assertNotNull(pathToFile);
-//        Assert.assertNotNull(url);
-//        Assert.assertNotNull(key);
+        Assert.assertNotNull(pathToFile);
+        Assert.assertNotNull(url);
+        Assert.assertNotNull(key);
 
         files.add(pathToFile);
 
-        //osTicketIntegrationService.setConfig(new OsTicketConfig(url, key));
-        //osTicketIntegrationService.setFileEncoder(new Base64FileEncoder());
+        osTicketIntegrationService.setConfig(new OsTicketConfig(url, key));
+        osTicketIntegrationService.setFileEncoder(new Base64FileEncoder());
     }
 
-    //@Test
+    @Test
     public void testService() throws Exception {
+
         Ticket ticket = new Ticket()
                 .setAlert(false)
                 .setAutoRespond(false)

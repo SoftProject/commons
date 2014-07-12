@@ -1,28 +1,19 @@
-/**
- * This file is part of osTicketIntegration.
- *
- * (c) 2014 SoftProject
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 package pl.com.softproject.utils.osticket.integration.service;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import org.codehaus.jackson.map.ObjectMapper;
 import pl.com.softproject.utils.osticket.integration.config.Config;
 import pl.com.softproject.utils.osticket.integration.encoder.FileEncoder;
 import pl.com.softproject.utils.osticket.integration.error.JsonParseError;
 import pl.com.softproject.utils.osticket.integration.error.OsTicketSystemError;
 import pl.com.softproject.utils.osticket.integration.model.Ticket;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Class OsTicketIntegrationService
@@ -36,21 +27,25 @@ public class OsTicketIntegrationServiceImpl implements OsTicketIntegrationServic
     private FileEncoder fileEncoder;
 
     public OsTicketIntegrationServiceImpl() {
+
     }
 
     public OsTicketIntegrationServiceImpl(Config config, FileEncoder fileEncoder) {
+
         this.config = config;
         this.fileEncoder = fileEncoder;
     }
 
     @Override
     public void appendFilesToTicket(Ticket ticket, List<File> files) throws IOException {
+
         List<Map<String, String>> encodedFiles = fileEncoder.encode(files);
         ticket.getAttachments().addAll(encodedFiles);
     }
 
     @Override
     public String createTicket(Ticket ticket) throws JsonParseError, OsTicketSystemError {
+
         checkIsProperlyInitialized();
 
         ObjectMapper mapper = new ObjectMapper();
@@ -81,6 +76,7 @@ public class OsTicketIntegrationServiceImpl implements OsTicketIntegrationServic
     }
 
     private void checkIsProperlyInitialized() throws IllegalStateException {
+
         if (config == null) {
             throw new IllegalStateException("configuration not found, use setConfig() method");
         }
@@ -90,10 +86,12 @@ public class OsTicketIntegrationServiceImpl implements OsTicketIntegrationServic
     }
 
     public void setConfig(Config config) {
+
         this.config = config;
     }
 
     public void setFileEncoder(FileEncoder fileEncoder) {
+
         this.fileEncoder = fileEncoder;
     }
 }
