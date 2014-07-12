@@ -211,7 +211,7 @@
         <repository>
             <id>sp-artifactory-public</id>
             <name>artifactory server</name>
-            <url>http://repo.softproject.com.pl/artifactory/public/</url>
+            <url>http://maven.softproject.com.pl</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
