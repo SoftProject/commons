@@ -1,11 +1,3 @@
-/**
- * This file is part of osTicketIntegration.
- *
- * (c) 2014 SoftProject
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 package pl.com.softproject.utils.osticket.integration.encoder;
 
 import org.apache.commons.codec.binary.Base64;
@@ -24,8 +16,10 @@ import java.util.Map;
  * @author Marcin Jasinski <mkjasinski@gmail.com>
  */
 public class Base64FileEncoder implements FileEncoder {
+
     @Override
     public List<Map<String, String>> encode(List<File> elements) throws IOException {
+
         if (elements.isEmpty()) {
             return null;
         }
@@ -41,6 +35,7 @@ public class Base64FileEncoder implements FileEncoder {
     }
 
     private String encodeFileToBase64Binary(File file) throws IOException {
+
         byte[] encoded = Base64.encodeBase64(loadFile(file));
 
         final Tika tika = new Tika();
@@ -49,6 +44,7 @@ public class Base64FileEncoder implements FileEncoder {
     }
 
     private static byte[] loadFile(File file) throws IOException {
+
         InputStream is = new FileInputStream(file);
 
         long length = file.length();
@@ -67,8 +63,8 @@ public class Base64FileEncoder implements FileEncoder {
         if (offset < bytes.length) {
             throw new IOException("Could not completely read file " + file.getName());
         }
-
         is.close();
+
         return bytes;
     }
 }

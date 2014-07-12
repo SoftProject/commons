@@ -13,7 +13,7 @@
 
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>osticket-integration</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>osticket-integration</name>
 
     <build>
@@ -49,6 +49,7 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
