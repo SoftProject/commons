@@ -1,11 +1,3 @@
-/**
- * This file is part of osTicketIntegration.
- *
- * (c) 2014 SoftProject
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 package pl.com.softproject.utils.osticket.integration.model;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -28,15 +20,19 @@ public class Ticket {
     private String subject;
     private String message;
     private boolean alert;
+
     @JsonProperty("autorespond")
     private boolean autoRespond;
+
     private List<Map<String, String>> attachments = new ArrayList<>();
     private int topicId = 1;
 
     public Ticket() {
+
     }
 
     public Ticket(String name, String email, String subject, String message, boolean alert, boolean autoRespond) {
+
         this.name = name;
         this.email = email;
         this.subject = subject;
@@ -46,84 +42,101 @@ public class Ticket {
     }
 
     public String getName() {
+
         return name;
     }
 
     public Ticket setName(String name) {
+
         this.name = name;
 
         return this;
     }
 
     public String getEmail() {
+
         return email;
     }
 
     public Ticket setEmail(String email) {
+
         this.email = email;
 
         return this;
     }
 
     public String getSource() {
+
         return source;
     }
 
     public String getSubject() {
+
         return subject;
     }
 
     public Ticket setSubject(String subject) {
+
         this.subject = subject;
 
         return this;
     }
 
     public String getMessage() {
+
         return message;
     }
 
     public Ticket setMessage(String message) {
+
         this.message = message;
 
         return this;
     }
 
     public boolean isAlert() {
+
         return alert;
     }
 
     public Ticket setAlert(boolean alert) {
+
         this.alert = alert;
 
         return this;
     }
 
     public boolean isAutoRespond() {
+
         return autoRespond;
     }
 
     public Ticket setAutoRespond(boolean autoRespond) {
+
         this.autoRespond = autoRespond;
 
         return this;
     }
 
     public List<Map<String, String>> getAttachments() {
+
         return attachments;
     }
 
     public Ticket setAttachments(List<Map<String, String>> attachments) {
+
         this.attachments = attachments;
 
         return this;
     }
 
     public int getTopicId() {
+
         return topicId;
     }
 
     public Ticket setTopicId(int topicId) {
+
         this.topicId = topicId;
 
         return this;
@@ -131,6 +144,7 @@ public class Ticket {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -151,6 +165,7 @@ public class Ticket {
 
     @Override
     public int hashCode() {
+
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (source != null ? source.hashCode() : 0);
@@ -165,6 +180,7 @@ public class Ticket {
 
     @Override
     public String toString() {
+
         return "Ticket{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
