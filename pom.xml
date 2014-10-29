@@ -198,7 +198,8 @@
         <module>payu</module>
         <module>commons-jasypt</module>
     <module>softproject-mail-utils</module>
-  </modules>
+        <module>commons-ldap</module>
+    </modules>
 
 
     <pluginRepositories>
