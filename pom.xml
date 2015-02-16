@@ -77,42 +77,42 @@
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>commons-dictionary</artifactId>
-                <version>1.3</version>
+                <version>1.4-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>pl.com.sodtproject.commons.invoice</groupId>
                 <artifactId>commons-invoice</artifactId>
-                <version>1.0</version>
+                <version>1.2-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>commons-http</artifactId>
-                <version>1.0</version>
+                <version>1.1-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>excel-exporter</artifactId>
-                <version>1.0.13</version>
+                <version>1.0.14-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>swing-extentions</artifactId>
-                <version>1.0.4</version>
+                <version>1.0.5-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>swing-worker</artifactId>
-                <version>0.0.2</version>
+                <version>0.0.3-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
@@ -133,21 +133,21 @@
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>utils-sitemap</artifactId>
-                <version>1.0.4</version>
+                <version>1.0.5-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>utils-text</artifactId>
-                <version>1.0.4</version>
+                <version>1.0.5-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
             <dependency>
                 <groupId>pl.com.softproject.utils</groupId>
                 <artifactId>utils-xml</artifactId>
-                <version>1.0.6</version>
+                <version>1.0.7-SNAPSHOT</version>
                 <optional>true</optional>
             </dependency>
 
@@ -202,7 +202,7 @@
     </modules>
 
 
-    <pluginRepositories>
+<!--    <pluginRepositories>
         <pluginRepository>
             <id>sp-artifactory-plugins</id>
             <url>http://repo.softproject.com.pl/artifactory/public/</url>
@@ -218,21 +218,17 @@
             </snapshots>
         </repository>
         
-    </repositories>
+    </repositories>-->
 
     <distributionManagement>
         <repository>
-            <id>csdeploy</id>
-            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/public-release-local</url>
+            <id>central</id>
+            <url>http://artifactory.softproject.local:8081/artifactory/libs-release-local</url>
         </repository>
         <snapshotRepository>
-            <id>cssnapshot</id>
-            <url>http://artifactory.pl.chartsearch.net:8081/artifactory/public-snapshot-local</url>
-        </snapshotRepository>
-        <!--site>
-            <id>cssitedeploy</id>
-            <url>scp://maven.pl.chartsearch.net/export/home0/maven/sites/chartsource-masterpom</url>
-        </site-->
+            <id>snapshots</id>
+            <url>http://artifactory.softproject.local:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>  
     </distributionManagement>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

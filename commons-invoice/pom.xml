@@ -10,7 +10,7 @@
     <groupId>pl.com.softproject.utils.invoice</groupId>
     <artifactId>commons-invoice</artifactId>
     <version>1.2-SNAPSHOT</version>
-    <name>softproject-commons-invoice</name>  
+    <name>commons-invoice</name>  
   
     <build>
         <resources>
