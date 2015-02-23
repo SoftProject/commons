@@ -4,11 +4,11 @@
     <parent>
         <artifactId>java-common-utilities</artifactId>
         <groupId>pl.com.softproject.utils</groupId>
-        <version>1.0.5-SNAPSHOT</version>
+        <version>1.0.5</version>
     </parent>
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>swing-worker</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>swing-worker</name>
     <url>http://maven.apache.org</url>
     <dependencies>
