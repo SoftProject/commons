@@ -4,11 +4,11 @@
     <parent>
         <groupId>pl.com.softproject.utils</groupId>
         <artifactId>java-common-utilities</artifactId>
-        <version>1.0.6-SNAPSHOT</version>
+        <version>1.0.5</version>
     </parent>
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>utils-sitemap</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.5</version>
     <name>utils-sitemap</name>
     
     <developers>
