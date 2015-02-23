@@ -3,11 +3,11 @@
     <parent>
         <artifactId>java-common-utilities</artifactId>
         <groupId>pl.com.softproject.utils</groupId>
-        <version>1.0.5</version>
+        <version>1.0.6-SNAPSHOT</version>
     </parent>
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>swing-extentions</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>swing-extentions</name>
