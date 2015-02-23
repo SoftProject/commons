@@ -1,37 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>java-common-utilities</artifactId>
     <packaging>pom</packaging>
     <version>1.0.5-SNAPSHOT</version>
     <name>java-common-utilities</name>
+
     <organization>
         <name>SoftProject</name>
     </organization>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <developers>
+
         <developer>
             <name>Adrian Lapierre</name>
             <email>alapierre@soft-project.pl</email>
         </developer>
+
         <developer>
-            <name>Marcin Jasinski</name>
+            <name>Marcin Jasiński</name>
             <email>mjasinski@soft-project.pl</email>
         </developer>
+
         <developer>
             <name>Leszek Bednorz</name>
             <email>lbednorz@soft-project.pl</email>
         </developer>
+
         <developer>
             <name>Rafał Cugowski</name>
             <email>rcugowski@soft-project.pl</email>
         </developer>
+
+        <developer>
+            <name>Grzegorz Chaś</name>
+            <email>gchas@soft-project.pl</email>
+        </developer>
     </developers>
-    <url>https://github.com/SoftProject/commons</url>
+
     <scm>
+        <url>https://github.com/SoftProject/commons</url>
         <connection>scm:git:https://github.com/SoftProject/commons.git</connection>
     </scm>
-
 
     <build>
         <extensions>
@@ -43,13 +62,9 @@
         </extensions>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <pushChanges>false</pushChanges>
-                </configuration>
-                <!--<configuration>-->
-                    <!--<tagBase>http://xp-dev.com/svn/java-commons-util/tags/</tagBase>-->
-                <!--</configuration>-->
+                <version>2.5.1</version>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -168,20 +183,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <!--reporting>
-        <plugins>
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <charset>utf-8</charset>
-                    <minmemory>128m</minmemory>
-                    <maxmemory>512</maxmemory>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting-->
-
-
     <modules>
         <module>utils-hibernate</module>
         <module>utils-xml</module>
@@ -197,40 +198,22 @@
         <module>osticket-integration</module>
         <module>payu</module>
         <module>commons-jasypt</module>
-    <module>softproject-mail-utils</module>
+        <module>softproject-mail-utils</module>
         <module>commons-ldap</module>
     </modules>
 
-
-<!--    <pluginRepositories>
-        <pluginRepository>
-            <id>sp-artifactory-plugins</id>
-            <url>http://repo.softproject.com.pl/artifactory/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
-    <repositories>
-        <repository>
-            <id>sp-artifactory-public</id>
-            <name>artifactory server</name>
-            <url>http://maven.softproject.com.pl</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        
-    </repositories>-->
-
     <distributionManagement>
+
         <repository>
             <id>central</id>
             <url>http://artifactory.softproject.local:8081/artifactory/libs-release-local</url>
         </repository>
+
         <snapshotRepository>
             <id>snapshots</id>
             <url>http://artifactory.softproject.local:8081/artifactory/libs-snapshot-local</url>
-        </snapshotRepository>  
+        </snapshotRepository>
+
     </distributionManagement>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+
 </project>
