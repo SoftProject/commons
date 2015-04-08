@@ -5,7 +5,9 @@
 package pl.com.softproject.utils.text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -14,7 +16,14 @@ import java.util.StringTokenizer;
  */
 public class StringUtil {
 
-    private static char[] delimiters = {' ', '.'};
+    private static final char[] delimiters = {' ', '.'};
+    
+    private static final Map<Character, String> NONDIACRITICS = new HashMap<Character, String>();
+
+    static {
+        NONDIACRITICS.put('ł', "l");
+        NONDIACRITICS.put('Ł', "L");
+    }
 
     public static String swapCase(String oryginal) {
 
@@ -263,6 +272,53 @@ public class StringUtil {
         }
 
         return res;
+    }
+    
+    
+    /**
+     * Usuwa znaki diakrytyczne z podanego ciągu znaków
+     * 
+     * @param string
+     * @return 
+     */
+    public static String stripAccentsAndNonASCII(String string) {
+        String convertedString = org.apache.commons.lang3.StringUtils.stripAccents(string);
+
+        return removeNonAscii(stripNonDiacritics(convertedString)).toLowerCase();
+    }
+
+    /**
+     * Usuwa znaki z poza ASCII
+     * 
+     * @param source
+     * @return 
+     */
+    public static String removeNonAscii(String source) {
+        return source.replaceAll("[^\\p{ASCII}]", "");
+    }
+
+    /**
+     * Zamienia spacje na podany znak
+     * 
+     * @param source - tekst do zmiany
+     * @param replacement - czym zastąpić
+     * @return 
+     */
+    public static String replaceWhiteChars(String source, String replacement) {
+        return source.replaceAll("\\s", replacement);
+    }
+
+    private static String stripNonDiacritics(String orig) {
+        StringBuilder ret = new StringBuilder();
         
+        for (int i = 0; i < orig.length(); i++) {
+            char source = orig.charAt(i);
+            String replace = NONDIACRITICS.get(source);
+            String toReplace = replace == null ? String.valueOf(source) : replace;
+
+            ret.append(toReplace);
+        }
+
+        return ret.toString();
     }
 }
