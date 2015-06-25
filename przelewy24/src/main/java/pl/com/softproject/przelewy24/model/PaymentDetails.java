@@ -1,4 +1,4 @@
-package pl.com.softproject.sample.przelewy24.model;
+package pl.com.softproject.przelewy24.model;
 /**
  * Copyright 2015-06-23 the original author or authors.
  */

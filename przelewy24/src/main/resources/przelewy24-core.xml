@@ -22,7 +22,7 @@
         >
 
 
-    <context:component-scan base-package="pl.com.softproject.sample.przelewy24.service"/>
+    <context:component-scan base-package="pl.com.softproject.przelewy24.service"/>
     <context:annotation-config/>
 
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">

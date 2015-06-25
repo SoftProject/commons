@@ -1,8 +1,8 @@
-package pl.com.softproject.sample.przelewy24.service;
+package pl.com.softproject.przelewy24.service;
 
-import pl.com.softproject.sample.przelewy24.model.Currency;
-import pl.com.softproject.sample.przelewy24.model.PaymentDetails;
-import pl.com.softproject.sample.przelewy24.model.Response;
+import pl.com.softproject.przelewy24.model.Currency;
+import pl.com.softproject.przelewy24.model.PaymentDetails;
+import pl.com.softproject.przelewy24.model.Response;
 
 /**
  * Copyright 2015-06-23 the original author or authors.

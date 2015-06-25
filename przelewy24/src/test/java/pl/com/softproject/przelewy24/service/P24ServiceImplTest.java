@@ -1,4 +1,4 @@
-package pl.com.softproject.sample.przelewy24.service;
+package pl.com.softproject.przelewy24.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pl.com.softproject.sample.przelewy24.util.DigestUtils;
+import pl.com.softproject.przelewy24.util.DigestUtils;
 
 import java.util.Map;
 import java.util.Random;

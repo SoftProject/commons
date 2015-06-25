@@ -25,7 +25,7 @@
     <!-- Placeholder config -->
     <context:property-placeholder location="classpath:test.properties" />
 
-    <cotext:component-scan base-package="pl.com.softproject.sample.przelewy24.service"/>
+    <cotext:component-scan base-package="pl.com.softproject.przelewy24.service"/>
     <context:annotation-config/>
 
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">

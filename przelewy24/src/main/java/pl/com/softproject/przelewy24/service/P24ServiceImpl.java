@@ -1,4 +1,4 @@
-package pl.com.softproject.sample.przelewy24.service;
+package pl.com.softproject.przelewy24.service;
 /**
  * Copyright 2015-06-23 the original author or authors.
  */
@@ -12,10 +12,10 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
-import pl.com.softproject.sample.przelewy24.model.Currency;
-import pl.com.softproject.sample.przelewy24.model.PaymentDetails;
-import pl.com.softproject.sample.przelewy24.model.Response;
-import pl.com.softproject.sample.przelewy24.util.DigestUtils;
+import pl.com.softproject.przelewy24.model.Currency;
+import pl.com.softproject.przelewy24.model.PaymentDetails;
+import pl.com.softproject.przelewy24.model.Response;
+import pl.com.softproject.przelewy24.util.DigestUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
