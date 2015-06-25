@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import pl.com.softproject.przelewy24.model.Currency;
+import pl.com.softproject.przelewy24.model.PaymentConfirmation;
 import pl.com.softproject.przelewy24.model.PaymentDetails;
 import pl.com.softproject.przelewy24.model.Response;
 import pl.com.softproject.przelewy24.util.DigestUtils;
@@ -229,6 +230,25 @@ public class P24ServiceImpl implements P24Service {
         response.setToken(res.get("token"));
 
         return response;
+    }
+
+    @Override
+    public PaymentConfirmation fromMap(Map<String, String> map) {
+
+        double amount = Double.parseDouble(map.get("p24_amount")) / 100;
+
+        PaymentConfirmation paymentConfirmation = new PaymentConfirmation();
+        paymentConfirmation.setAmount(amount);
+        paymentConfirmation.setCurrency(Currency.valueOf(map.get("p24_currency")));
+        paymentConfirmation.setMerchantId(Integer.parseInt(map.get("p24_merchant_id")));
+        paymentConfirmation.setPosId(Integer.parseInt(map.get("p24_pos_id")));
+        paymentConfirmation.setSessionId(map.get("p24_session_id"));
+        paymentConfirmation.setOrderId(Integer.parseInt(map.get("p24_order_id")));
+        paymentConfirmation.setMethod(Integer.parseInt(map.get("p24_method")));
+        paymentConfirmation.setStatement(map.get("p24_statement"));
+        paymentConfirmation.setSig(map.get("p24_sign"));
+
+        return paymentConfirmation;
     }
 
     public void setMerchantId(int merchantId) {

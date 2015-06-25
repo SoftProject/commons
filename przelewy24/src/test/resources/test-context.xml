@@ -38,4 +38,8 @@
         </property>
     </bean>
 
+    <bean class="pl.com.softproject.przelewy24.controller.ConfirmationCallbackMock">
+
+    </bean>
+
 </beans>
