@@ -38,5 +38,7 @@ public interface PivotTableModel {
     List<String> getRowNames();
 
     Set<String> getColumnNames();
+
+    Object get(String rowKey, String columnKey);
     
 }
