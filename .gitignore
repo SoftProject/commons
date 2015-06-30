@@ -16,6 +16,7 @@
 /softproject-mail-utils/target/
 /commons-ldap/target/
 przelewy24/przelewy24.iml
+/**/target/
 .idea
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
