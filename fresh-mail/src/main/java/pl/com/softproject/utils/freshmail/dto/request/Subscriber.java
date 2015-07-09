@@ -19,11 +19,11 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 /**
- * Class AddSubscriber
+ * Class Subscriber
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public class AddSubscriber implements Serializable {
+public class Subscriber implements Serializable {
 
     @NotNull
     private String email;
@@ -33,16 +33,16 @@ public class AddSubscriber implements Serializable {
 
     @JsonSerialize(using = SubscriberStateSerializer.class)
     @JsonDeserialize(using = SubscriberStateDeserializer.class)
-    private SubscriberState state;
+    private SubscriberState state = SubscriberState.TO_ACTIVATE;
 
     @JsonSerialize(using = SubscriberConfirmSerializer.class)
     @JsonDeserialize(using = SubscriberConfirmDeserializer.class)
-    private SubscriberConfirm confirm;
+    private SubscriberConfirm confirm = SubscriberConfirm.CONFIRM;
 
     @JsonProperty("custom_fields")
     private List<DictionaryField> customFields = new ArrayList<>();
 
-    public AddSubscriber() {
+    public Subscriber() {
     }
 
     public String getEmail() {
@@ -87,7 +87,7 @@ public class AddSubscriber implements Serializable {
 
     @Override
     public String toString() {
-        return "AddSubscriber{" +
+        return "Subscriber{" +
                "email='" + email + '\'' +
                ", list='" + list + '\'' +
                ", state=" + state +

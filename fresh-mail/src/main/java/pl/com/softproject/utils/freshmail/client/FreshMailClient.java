@@ -11,8 +11,8 @@ import org.apache.log4j.Logger;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
 import pl.com.softproject.utils.freshmail.config.Configuration;
-import pl.com.softproject.utils.freshmail.dto.request.AddSubscriber;
-import pl.com.softproject.utils.freshmail.dto.request.SendEmail;
+import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
+import pl.com.softproject.utils.freshmail.dto.request.EmailMessage;
 import pl.com.softproject.utils.freshmail.dto.response.BasicCorrectResponse;
 import pl.com.softproject.utils.freshmail.dto.response.SubscribersListResponse;
 import pl.com.softproject.utils.freshmail.exception.JsonParsingException;
@@ -121,7 +121,7 @@ public class FreshMailClient implements Serializable {
         }
     }
 
-    public boolean subscriberAdd(AddSubscriber addSubscriber) {
+    public boolean subscriberAdd(Subscriber subscriber) {
 
         debug("subscriberAdd()");
 
@@ -129,7 +129,7 @@ public class FreshMailClient implements Serializable {
 
         String postData;
         try {
-            postData = StringUtil.toJson(addSubscriber);
+            postData = StringUtil.toJson(subscriber);
         } catch (JsonProcessingException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
@@ -162,7 +162,7 @@ public class FreshMailClient implements Serializable {
         return basicResponse.getStatus().equalsIgnoreCase(OK);
     }
 
-    public boolean mail(SendEmail sendEmail) {
+    public boolean mail(EmailMessage emailMessage) {
 
         debug("mail()");
 
@@ -170,7 +170,7 @@ public class FreshMailClient implements Serializable {
 
         String postData;
         try {
-            postData = StringUtil.toJson(sendEmail);
+            postData = StringUtil.toJson(emailMessage);
         } catch (JsonProcessingException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }

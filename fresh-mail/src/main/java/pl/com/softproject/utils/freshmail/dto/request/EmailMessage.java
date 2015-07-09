@@ -16,11 +16,11 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 /**
- * Class SendEmail
+ * Class EmailMessage
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public class SendEmail implements Serializable {
+public class EmailMessage implements Serializable {
 
     @NotNull
     private String subscriber;
@@ -54,7 +54,7 @@ public class SendEmail implements Serializable {
 
     private String tag;
 
-    public SendEmail() {
+    public EmailMessage() {
     }
 
     public String getSubscriber() {
@@ -155,7 +155,7 @@ public class SendEmail implements Serializable {
 
     @Override
     public String toString() {
-        return "SendEmail{" +
+        return "EmailMessage{" +
                "subscriber='" + subscriber + '\'' +
                ", subject='" + subject + '\'' +
                ", html='" + html + '\'' +

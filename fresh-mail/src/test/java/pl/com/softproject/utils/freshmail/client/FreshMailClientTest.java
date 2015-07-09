@@ -11,8 +11,8 @@ import pl.com.softproject.utils.freshmail.config.Configuration;
 import pl.com.softproject.utils.freshmail.config.FreshMailConfiguration;
 import pl.com.softproject.utils.freshmail.config.SubscriberConfirm;
 import pl.com.softproject.utils.freshmail.config.SubscriberState;
-import pl.com.softproject.utils.freshmail.dto.request.AddSubscriber;
-import pl.com.softproject.utils.freshmail.dto.request.SendEmail;
+import pl.com.softproject.utils.freshmail.dto.request.EmailMessage;
+import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
 import pl.com.softproject.utils.freshmail.hash.HashGenerator;
 import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 
@@ -39,8 +39,8 @@ public class FreshMailClientTest {
             private static final String URL = "API_URL";
             private static final String API_KEY = "API_KEY";
             private static final String API_SECRET = "API_SECRET";
-            private static final String HTTP_HEADER_API_KEY = "HEADER_FOR_API_KEY";
-            private static final String HTTP_HEADER_API_SIGN = "HEADER_FOR_API_SIGN";
+            private static final String HTTP_HEADER_API_KEY = "X-Rest-ApiKey";
+            private static final String HTTP_HEADER_API_SIGN = "X-Rest-ApiSign";
         }
 
         configuration = new FreshMailConfiguration(Configuration.URL, Configuration.API_KEY,
@@ -72,13 +72,13 @@ public class FreshMailClientTest {
             public static final String EMAIL = "admin@example.com";
         }
 
-        AddSubscriber addSubscriber = new AddSubscriber();
-        addSubscriber.setEmail(Configuration.EMAIL);
-        addSubscriber.setConfirm(SubscriberConfirm.CONFIRM);
-        addSubscriber.setList(Configuration.LIST_HASH);
-        addSubscriber.setState(SubscriberState.ACTIVE);
+        Subscriber subscriber = new Subscriber();
+        subscriber.setEmail(Configuration.EMAIL);
+        subscriber.setConfirm(SubscriberConfirm.CONFIRM);
+        subscriber.setList(Configuration.LIST_HASH);
+        subscriber.setState(SubscriberState.ACTIVE);
 
-        Assertions.assertThat(freshMailClient.subscriberAdd(addSubscriber)).isTrue();
+        Assertions.assertThat(freshMailClient.subscriberAdd(subscriber)).isTrue();
     }
 
     @Test
@@ -94,15 +94,15 @@ public class FreshMailClientTest {
             public static final String FROM_NAME = SUBSCRIBER;
         }
 
-        SendEmail sendEmail = new SendEmail();
-        sendEmail.setSubscriber(Configuration.SUBSCRIBER);
-        sendEmail.setSubject(Configuration.SUBJECT);
-        sendEmail.setText(Configuration.TEXT);
-        sendEmail.setReplyTo(Configuration.REPLY_TO);
-        sendEmail.setFrom(Configuration.FROM);
-        sendEmail.setFromName(Configuration.FROM_NAME);
+        EmailMessage emailMessage = new EmailMessage();
+        emailMessage.setSubscriber(Configuration.SUBSCRIBER);
+        emailMessage.setSubject(Configuration.SUBJECT);
+        emailMessage.setText(Configuration.TEXT);
+        emailMessage.setReplyTo(Configuration.REPLY_TO);
+        emailMessage.setFrom(Configuration.FROM);
+        emailMessage.setFromName(Configuration.FROM_NAME);
 
-        Assertions.assertThat(freshMailClient.mail(sendEmail)).isTrue();
+        Assertions.assertThat(freshMailClient.mail(emailMessage)).isTrue();
     }
 
     @Test
