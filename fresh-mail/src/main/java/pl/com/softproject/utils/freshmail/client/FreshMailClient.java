@@ -49,8 +49,9 @@ public class FreshMailClient implements Serializable {
 
     private final Client client;
 
-    private boolean debug;
-    private LoggingFilter loggingFilter  = new LoggingFilter(System.out);;
+    private boolean debug = false;
+
+    private LoggingFilter loggingFilter = new LoggingFilter(System.out);
 
     public FreshMailClient(@NotNull final Configuration configuration,
                            @NotNull final HashGenerator hashGenerator) {
@@ -223,7 +224,7 @@ public class FreshMailClient implements Serializable {
 
         this.debug = debug;
 
-        if(debug) {
+        if (debug) {
             logger.debug("debug is enabled");
             client.addFilter(loggingFilter);
         } else {

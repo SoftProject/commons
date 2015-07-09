@@ -21,8 +21,7 @@ public class FreshMailConfiguration implements Serializable, Configuration {
 
     private final String httpHeaderForApiSign;
 
-    public FreshMailConfiguration(@NotNull final String apiKey,
-                                  @NotNull final String apiSecret) {
+    public FreshMailConfiguration(@NotNull final String apiKey, @NotNull final String apiSecret) {
 
         this.url = "https://api.freshmail.com/";
         this.apiKey = apiKey;

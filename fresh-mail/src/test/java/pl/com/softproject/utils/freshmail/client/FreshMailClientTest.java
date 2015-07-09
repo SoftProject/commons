@@ -16,6 +16,9 @@ import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
 import pl.com.softproject.utils.freshmail.hash.HashGenerator;
 import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * Class FreshMailClientTest
  *
@@ -36,7 +39,7 @@ public class FreshMailClientTest {
 
         class Configuration {
 
-            private static final String URL = "API_URL";
+            private static final String URL = "https://api.freshmail.com/";
             private static final String API_KEY = "API_KEY";
             private static final String API_SECRET = "API_SECRET";
             private static final String HTTP_HEADER_API_KEY = "X-Rest-ApiKey";
@@ -77,6 +80,11 @@ public class FreshMailClientTest {
         subscriber.setConfirm(SubscriberConfirm.CONFIRM);
         subscriber.setList(Configuration.LIST_HASH);
         subscriber.setState(SubscriberState.ACTIVE);
+
+        Map<String, String> fields = new LinkedHashMap<>(2);
+        fields.put("f1", "f1");
+        fields.put("f2", "f2");
+        subscriber.setCustomFields(fields);
 
         Assertions.assertThat(freshMailClient.subscriberAdd(subscriber)).isTrue();
     }
