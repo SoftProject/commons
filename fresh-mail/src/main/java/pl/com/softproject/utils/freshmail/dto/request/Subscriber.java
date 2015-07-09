@@ -10,11 +10,10 @@ import pl.com.softproject.utils.freshmail.databind.deserializer.SubscriberConfir
 import pl.com.softproject.utils.freshmail.databind.deserializer.SubscriberStateDeserializer;
 import pl.com.softproject.utils.freshmail.databind.serializer.SubscriberConfirmSerializer;
 import pl.com.softproject.utils.freshmail.databind.serializer.SubscriberStateSerializer;
-import pl.com.softproject.utils.freshmail.dto.DictionaryField;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.validation.constraints.NotNull;
 
@@ -40,7 +39,7 @@ public class Subscriber implements Serializable {
     private SubscriberConfirm confirm = SubscriberConfirm.CONFIRM;
 
     @JsonProperty("custom_fields")
-    private List<DictionaryField> customFields = new ArrayList<>();
+    private Map<String, String> customFields = new LinkedHashMap<>();
 
     public Subscriber() {
     }
@@ -77,11 +76,11 @@ public class Subscriber implements Serializable {
         this.confirm = confirm;
     }
 
-    public List<DictionaryField> getCustomFields() {
+    public Map<String, String> getCustomFields() {
         return customFields;
     }
 
-    public void setCustomFields(List<DictionaryField> customFields) {
+    public void setCustomFields(Map<String, String> customFields) {
         this.customFields = customFields;
     }
 
