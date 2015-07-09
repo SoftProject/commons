@@ -1,56 +1,13 @@
-/utils-hibernate/target/
-/utils-xml/target/
-/utils-text/target/
-/utils-jdbc/target/
-/excel-exporter/target/
-/commons-dictionary/target/
-/swing-worker/target/
-/swing-extentions/target/
-/commons-http/target/
-/commons-invoice/target/
-/utils-sitemap/target/
 /utils-jdbc/src/test/resources/hsql/database.properties
-/osticket-integration/target/
-/payu/target/
-/commons-jasypt/target/
-/softproject-mail-utils/target/
-/commons-ldap/target/
-przelewy24/przelewy24.iml
+
 /**/target/
 .idea
-### JetBrains template
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
+
 /**/*.iml
 *.iml
 
 ## Directory-based project format:
 .idea/
-# if you remove the above rule, at least ignore the following:
-
-# User-specific stuff:
-# .idea/workspace.xml
-# .idea/tasks.xml
-# .idea/dictionaries
-
-# Sensitive or high-churn files:
-# .idea/dataSources.ids
-# .idea/dataSources.xml
-# .idea/sqlDataSources.xml
-# .idea/dynamic.xml
-# .idea/uiDesigner.xml
-
-# Gradle:
-# .idea/gradle.xml
-# .idea/libraries
-
-# Mongo Explorer plugin:
-# .idea/mongoSettings.xml
-
-## File-based project format:
-*.ipr
-*.iws
-
-## Plugin-specific files:
 
 # IntelliJ
 /out/
@@ -61,14 +18,7 @@ przelewy24/przelewy24.iml
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-
-
-
-commons-dictionary/commons-dictionary.iml
+/commons-dictionary/commons-dictionary.iml
 commons-http/commons-http.iml
 commons-jasypt/commons-jasypt.iml
 commons-ldap/commons-ldap.iml
