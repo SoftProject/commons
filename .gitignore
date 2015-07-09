@@ -20,7 +20,7 @@ przelewy24/przelewy24.iml
 .idea
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
-
+/**/*.iml
 *.iml
 
 ## Directory-based project format:
@@ -67,3 +67,18 @@ crashlytics.properties
 crashlytics-build.properties
 
 
+
+commons-dictionary/commons-dictionary.iml
+commons-http/commons-http.iml
+commons-jasypt/commons-jasypt.iml
+commons-ldap/commons-ldap.iml
+excel-exporter/excel-exporter.iml
+osticket-integration/osticket-integration.iml
+softproject-mail-utils/softproject-mail-utils.iml
+swing-extentions/swing-extentions.iml
+swing-worker/swing-worker.iml
+utils-hibernate/utils-hibernate.iml
+utils-jdbc/utils-jdbc.iml
+utils-sitemap/utils-sitemap.iml
+utils-text/utils-text.iml
+utils-xml/utils-xml.iml

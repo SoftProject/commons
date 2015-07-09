@@ -199,6 +199,7 @@
         <module>commons-jasypt</module>
         <module>softproject-mail-utils</module>
         <module>commons-ldap</module>
+        <module>przelewy24</module>
         <module>fresh-mail</module>
     </modules>
 
