@@ -6,13 +6,14 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.client.filter.LoggingFilter;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
 import pl.com.softproject.utils.freshmail.config.Configuration;
-import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
 import pl.com.softproject.utils.freshmail.dto.request.EmailMessage;
+import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
 import pl.com.softproject.utils.freshmail.dto.response.BasicCorrectResponse;
 import pl.com.softproject.utils.freshmail.dto.response.SubscribersListResponse;
 import pl.com.softproject.utils.freshmail.exception.JsonParsingException;
@@ -48,6 +49,9 @@ public class FreshMailClient implements Serializable {
 
     private final Client client;
 
+    private boolean debug;
+    private LoggingFilter loggingFilter  = new LoggingFilter(System.out);;
+
     public FreshMailClient(@NotNull final Configuration configuration,
                            @NotNull final HashGenerator hashGenerator) {
 
@@ -61,6 +65,7 @@ public class FreshMailClient implements Serializable {
 
         client = Client.create(defaultClientConfig);
         client.setFollowRedirects(false);
+
     }
 
     private static void debug(String message) {
@@ -212,5 +217,18 @@ public class FreshMailClient implements Serializable {
 
     private WebResource getWebResource(String action) {
         return client.resource(StringUtil.concatUrls(configuration.getUrl(), action));
+    }
+
+    public void setDebug(boolean debug) {
+
+        this.debug = debug;
+
+        if(debug) {
+            logger.debug("debug is enabled");
+            client.addFilter(loggingFilter);
+        } else {
+            logger.debug("debug is disabled");
+            client.removeFilter(loggingFilter);
+        }
     }
 }
