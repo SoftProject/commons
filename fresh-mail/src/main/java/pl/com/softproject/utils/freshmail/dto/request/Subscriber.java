@@ -76,13 +76,11 @@ public class Subscriber implements Serializable {
         this.confirm = confirm;
     }
 
-    public Map<String, String> getCustomFields() {
-        return customFields;
+    public void addCustomField(String fieldName, String FieldValue) {
+        customFields.put(fieldName, FieldValue);
     }
 
-    public void setCustomFields(Map<String, String> customFields) {
-        this.customFields = customFields;
-    }
+
 
     @Override
     public String toString() {

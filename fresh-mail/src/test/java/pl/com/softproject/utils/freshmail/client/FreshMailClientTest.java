@@ -16,9 +16,6 @@ import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
 import pl.com.softproject.utils.freshmail.hash.HashGenerator;
 import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 /**
  * Class FreshMailClientTest
  *
@@ -81,10 +78,8 @@ public class FreshMailClientTest {
         subscriber.setList(Configuration.LIST_HASH);
         subscriber.setState(SubscriberState.ACTIVE);
 
-        Map<String, String> fields = new LinkedHashMap<>(2);
-        fields.put("f1", "f1");
-        fields.put("f2", "f2");
-        subscriber.setCustomFields(fields);
+        subscriber.addCustomField("f1", "f1");
+        subscriber.addCustomField("f2", "f2");
 
         Assertions.assertThat(freshMailClient.subscriberAdd(subscriber)).isTrue();
     }
