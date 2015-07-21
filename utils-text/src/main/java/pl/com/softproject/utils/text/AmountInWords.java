@@ -137,7 +137,7 @@ public class AmountInWords {
 
     static long liczba_groszy(double kwota) {
         Double groszy = (kwota * 100 - liczba_zlotych(kwota) * 100);
-        return groszy.longValue();
+        return Math.round(groszy);
     }
 
     public static String toWords(double kwota) {
