@@ -14,7 +14,7 @@ public class PivotTableHtmlExporter {
 
     private PivotTableModel pivotTableModel;
     private String[] columns;
-    final DecimalFormat format = new DecimalFormat("#,###.00");
+    final DecimalFormat format = new DecimalFormat("#,###0.00");
     
     public PivotTableHtmlExporter(PivotTableModel pivotTableModel, String[] columns) {
         this.columns = columns;
