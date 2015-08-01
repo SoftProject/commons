@@ -38,7 +38,7 @@ public class P24ServiceImplTest {
 
     }
 
-    @Test
+    @Test(expected = StringIndexOutOfBoundsException.class)
     public void testTrnRegister() {
 
         Random generator = new Random();
