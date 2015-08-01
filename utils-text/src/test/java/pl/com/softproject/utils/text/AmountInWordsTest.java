@@ -3,17 +3,15 @@
  */
 package pl.com.softproject.utils.text;
 
-import org.junit.AfterClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.BeforeClass;
+
+import static org.junit.Assert.assertEquals;
 
 /**
- *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 public class AmountInWordsTest {
-    
+
     /**
      * Test of toWords method, of class AmountInWords.
      */
@@ -26,8 +24,8 @@ public class AmountInWordsTest {
         System.out.println("result: " + result);
         assertEquals(expResult, result);
     }
-    
-    
+
+
     @Test
     public void testToWords100() {
         System.out.println("toWords");
@@ -37,7 +35,7 @@ public class AmountInWordsTest {
         System.out.println("result: " + result);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testToWords126() {
         System.out.println("toWords");
@@ -47,7 +45,7 @@ public class AmountInWordsTest {
         System.out.println("result: " + result);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testToWords101() {
         System.out.println("toWords");
@@ -57,7 +55,7 @@ public class AmountInWordsTest {
         System.out.println("result: " + result);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testToWords113() {
         System.out.println("toWords");
@@ -67,7 +65,7 @@ public class AmountInWordsTest {
         System.out.println("result: " + result);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testToWords1() {
         System.out.println("toWords");
@@ -77,7 +75,7 @@ public class AmountInWordsTest {
         System.out.println("result: " + result);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testToWords1000() {
         System.out.println("toWords");
@@ -87,13 +85,12 @@ public class AmountInWordsTest {
         System.out.println("result: " + result);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testLiczba_groszy() {
-        
+
         double liczba = 123.6456;
         long result = AmountInWords.liczba_groszy(liczba);
-        assertEquals(64L, result);
-        
+        assertEquals(65L, result);
     }
 }
