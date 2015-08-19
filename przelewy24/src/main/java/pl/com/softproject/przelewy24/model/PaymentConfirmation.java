@@ -8,14 +8,52 @@ package pl.com.softproject.przelewy24.model;
  */
 public class PaymentConfirmation {
 
+    /**
+     * ID Sprzedawcy 
+     */
     private int merchantId;
+    
+    /**
+     * ID Sklepu (domyślnie ID Sprzedawcy) 
+     */
     private int posId;
+    
+    /**
+     * Kwota transakcji - zostanie przeliczona do odpowiedniego formatu 
+     */
     private double amount;
+    
+    /**
+     * Waluta
+     */
     private Currency currency;
+    
+    /**
+     * Numer transakcji nadany przez Przelewy24 
+     */
     private int orderId;
+    
+    /**
+     * Metoda płatności użyta przez klienta 
+     */
     private int method;
+    
+    /**
+     * Tytuł przelewu
+     */
     private String statement;
+    
+    /**
+     * Suma kontrolna wyliczana wg z pól:
+     * p24_session_id, p24_order_id,
+     * p24_amount ,p24_currency i pola
+     * "Klucz CRC" 
+     */
     private String sig;
+    
+    /**
+     * Unikalny identyfikator z systemu sprzedawcy 
+     */
     private String sessionId;
 
     public int getMerchantId() {

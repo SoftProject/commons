@@ -30,11 +30,11 @@
 
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
         <property name="messageConverters">
-            <list>
+            <listData>
                 <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
                 <bean class="org.springframework.http.converter.StringHttpMessageConverter" />
                 <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>-->
-            </list>
+            </listData>
         </property>
     </bean>
 
