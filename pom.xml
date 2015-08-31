@@ -201,6 +201,8 @@
         <module>commons-ldap</module>
         <module>przelewy24</module>
         <module>fresh-mail</module>
+        <!--<module>commons-owm</module>-->
+        <module>payments-subscriptions</module>
     </modules>
 
     <distributionManagement>
