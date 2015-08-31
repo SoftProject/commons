@@ -12,6 +12,8 @@ import org.apache.log4j.Logger;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
 import pl.com.softproject.utils.freshmail.config.Configuration;
+import pl.com.softproject.utils.freshmail.config.SubscriberConfirm;
+import pl.com.softproject.utils.freshmail.config.SubscriberState;
 import pl.com.softproject.utils.freshmail.dto.request.EmailMessage;
 import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
 import pl.com.softproject.utils.freshmail.dto.response.BasicCorrectResponse;
@@ -23,6 +25,7 @@ import pl.com.softproject.utils.freshmail.util.StringUtil;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
@@ -125,6 +128,27 @@ public class FreshMailClient implements Serializable {
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
+    }
+
+    public boolean subscriberAdd(String listHash, List<Subscriber> list, SubscriberConfirm confirm, SubscriberState state) {
+
+        for(Subscriber subscriber : list) {
+            subscriber.setConfirm(confirm);
+            subscriber.setState(state);
+            subscriber.setList(listHash);
+            subscriberAdd(subscriber);
+        }
+
+        return true;
+    }
+
+    public boolean subscriberAdd(String listHash, Subscriber subscriber, SubscriberConfirm confirm, SubscriberState state) {
+
+        subscriber.setConfirm(confirm);
+        subscriber.setState(state);
+        subscriber.setList(listHash);
+        return subscriberAdd(subscriber);
+
     }
 
     public boolean subscriberAdd(Subscriber subscriber) {
