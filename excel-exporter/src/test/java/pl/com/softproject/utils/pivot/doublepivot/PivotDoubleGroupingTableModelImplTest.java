@@ -13,13 +13,13 @@ import org.junit.runners.JUnit4;
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
 @RunWith(JUnit4.class)
-public class PivotDoubleTableModelImplTest extends TestCase {
+public class PivotDoubleGroupingTableModelImplTest extends TestCase {
 
-    private PivotDoubleTableModelImpl pivotDoubleTableModel;
+    private PivotDoubleGroupingTableModelImpl pivotDoubleTableModel;
 
     @Before
     public void before() throws Exception {
-        pivotDoubleTableModel = new PivotDoubleTableModelImpl();
+        pivotDoubleTableModel = new PivotDoubleGroupingTableModelImpl();
     }
 
     @Test

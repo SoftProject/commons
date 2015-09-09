@@ -1,11 +1,11 @@
 package pl.com.softproject.utils.pivot.doublepivot;
 
 /**
- * Interface HasSubElement
+ * Interface Containable
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public interface HasSubElement {
+public interface Containable {
 
     boolean contains(String elementKey);
 }

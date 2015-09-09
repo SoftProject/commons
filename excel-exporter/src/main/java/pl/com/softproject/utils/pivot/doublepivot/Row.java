@@ -7,7 +7,7 @@ import java.util.LinkedHashSet;
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public class Row implements Cell, HasSubElement {
+public class Row implements Cell, Containable {
 
     private String key;
     private String name;

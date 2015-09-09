@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 /**
- * Class PivotDoubleTableModel
+ * Class PivotDoubleGroupingTableModel
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public interface PivotDoubleTableModel extends HasSubElement {
+public interface PivotDoubleGroupingTableModel extends Containable {
 
     void addRow(Row row);
 

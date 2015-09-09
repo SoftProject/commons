@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 /**
- * Class PivotDoubleTableModelImpl
+ * Class PivotDoubleGroupingTableModelImpl
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public class PivotDoubleTableModelImpl implements PivotDoubleTableModel {
+public class PivotDoubleGroupingTableModelImpl implements PivotDoubleGroupingTableModel {
 
     private LinkedHashSet<Row> rows = new LinkedHashSet<Row>();
     private RowIterator rowIterator = (RowIterator) iterator();
@@ -149,7 +149,7 @@ public class PivotDoubleTableModelImpl implements PivotDoubleTableModel {
 
         private final Iterator<Row> iterator;
 
-        RowIterator(PivotDoubleTableModelImpl pivotDoubleTableModel) {
+        RowIterator(PivotDoubleGroupingTableModelImpl pivotDoubleTableModel) {
             iterator = pivotDoubleTableModel.rows.iterator();
         }
 
