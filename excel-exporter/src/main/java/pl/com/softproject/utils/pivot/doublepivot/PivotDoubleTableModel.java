@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public interface PivotDoubleTableModel {
+public interface PivotDoubleTableModel extends HasSubElement {
 
     void addRow(Row row);
 
@@ -17,8 +17,6 @@ public interface PivotDoubleTableModel {
     int getRowsCount();
 
     LinkedHashSet<String> getRowNames();
-
-    boolean containsRow(String rowKey);
 
     Row getRow(String rowKey);
 

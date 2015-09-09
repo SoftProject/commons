@@ -40,10 +40,10 @@ public class PivotDoubleTableModelImpl implements PivotDoubleTableModel {
     }
 
     @Override
-    public boolean containsRow(final String rowKey) {
+    public boolean contains(final String elementKey) {
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
-            if (row.getKey().equals(rowKey)) {
+            if (row.getKey().equals(elementKey)) {
                 return true;
             }
         }
