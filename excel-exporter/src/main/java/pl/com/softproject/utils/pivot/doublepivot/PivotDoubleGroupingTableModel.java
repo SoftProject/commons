@@ -40,7 +40,7 @@ public interface PivotDoubleGroupingTableModel extends Containable {
 
     int getColumnCount();
 
-    LinkedHashSet getColumnNames();
+    LinkedHashSet<String> getColumnNames();
 
     Column getColumn(String rowKey, String subRowKey, String columnKey);
 

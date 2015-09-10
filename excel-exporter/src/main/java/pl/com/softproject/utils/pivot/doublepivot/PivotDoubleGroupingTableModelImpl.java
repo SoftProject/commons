@@ -16,7 +16,7 @@ import java.util.LinkedHashSet;
  */
 public class PivotDoubleGroupingTableModelImpl implements PivotDoubleGroupingTableModel {
 
-    public static final String DEFAULT_EMPTY_CELL_VALUE = "";
+    public static final String DEFAULT_EMPTY_VALUE = "";
 
     private LinkedHashSet<Row> rows = new LinkedHashSet<Row>();
 
@@ -177,7 +177,7 @@ public class PivotDoubleGroupingTableModelImpl implements PivotDoubleGroupingTab
                     oneSubRow.getColumns().add(column);
                 } else {
                     Column emptyColumn =
-                            new Column(column.getKey(), column.getName(), DEFAULT_EMPTY_CELL_VALUE);
+                            new Column(column.getKey(), column.getName(), DEFAULT_EMPTY_VALUE);
                     oneSubRow.getColumns().add(emptyColumn);
                 }
             }
