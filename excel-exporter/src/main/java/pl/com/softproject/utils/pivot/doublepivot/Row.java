@@ -57,4 +57,24 @@ public class Row implements Cell, Containable {
         }
         return false;
     }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        final Row row = (Row) o;
+
+        return !(key != null ? !key.equals(row.key) : row.key != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return key != null ? key.hashCode() : 0;
+    }
 }

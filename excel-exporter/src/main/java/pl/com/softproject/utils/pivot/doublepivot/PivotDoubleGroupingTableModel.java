@@ -40,13 +40,13 @@ public interface PivotDoubleGroupingTableModel extends Containable {
 
     int getColumnCount();
 
-    LinkedHashSet<String> getColumnNames();
+    LinkedHashSet getColumnNames();
 
-    Column getColumn(String rowKey, String subRowKey);
+    Column getColumn(String rowKey, String subRowKey, String columnKey);
 
-    void removeColumn(String rowKey, String subRowKey);
+    void removeColumn(String rowKey, String subRowKey, String columnKey);
 
-    Class getColumnClass(String rowKey, String subRowKey);
+    Class getColumnClass(String rowKey, String subRowKey, String columnKey);
 
     Object get(String rowKey, String subRowKey, String columnKey);
 

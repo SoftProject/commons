@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>java-common-utilities</artifactId>
         <groupId>pl.com.softproject.utils</groupId>
         <version>1.0.6-SNAPSHOT</version>
     </parent>
-    <groupId>pl.com.softproject.utils</groupId>
-    <artifactId>excel-exporter</artifactId>  
+    <!--<groupId>pl.com.softproject.utils</groupId>-->
+    <artifactId>excel-exporter</artifactId>
     <name>excel-exporter</name>
     <version>1.0.15-SNAPSHOT</version>
     <url>http://maven.apache.org</url>
@@ -50,7 +52,7 @@
             <version>3.0.6.RELEASE</version>
             <scope>test</scope>
         </dependency>
-    
+
         <dependency>
             <artifactId>dbunit</artifactId>
             <groupId>org.dbunit</groupId>
@@ -68,8 +70,14 @@
             <artifactId>commons-io</artifactId>
             <version>2.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <guava.version>18.0</guava.version>
     </properties>
 </project>
