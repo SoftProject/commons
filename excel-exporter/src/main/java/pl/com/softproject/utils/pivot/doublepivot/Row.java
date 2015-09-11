@@ -77,4 +77,12 @@ public class Row implements Cell, Containable {
     public int hashCode() {
         return key != null ? key.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return "Row{" +
+               "key='" + key + '\'' +
+               ", name='" + name + '\'' +
+               '}';
+    }
 }

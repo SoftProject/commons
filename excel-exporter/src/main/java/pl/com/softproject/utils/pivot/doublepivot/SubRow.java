@@ -77,4 +77,12 @@ public class SubRow implements Cell, Containable {
     public int hashCode() {
         return key != null ? key.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return "SubRow{" +
+               "key='" + key + '\'' +
+               ", name='" + name + '\'' +
+               '}';
+    }
 }
