@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.exception;
 
 /**
- * Class ParsingJsonException
+ * Class ParsingJsonException.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

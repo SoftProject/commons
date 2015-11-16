@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.hash;
 
 /**
- * Class HtmlHashGenerator
+ * Class HtmlHashGenerator.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

@@ -10,7 +10,7 @@ import pl.com.softproject.utils.freshmail.config.Tracking;
 import java.io.IOException;
 
 /**
- * Class TrackingDeserializer
+ * Class TrackingDeserializer.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

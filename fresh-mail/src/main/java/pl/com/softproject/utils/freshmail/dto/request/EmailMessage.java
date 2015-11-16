@@ -16,7 +16,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 /**
- * Class EmailMessage
+ * Class EmailMessage.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

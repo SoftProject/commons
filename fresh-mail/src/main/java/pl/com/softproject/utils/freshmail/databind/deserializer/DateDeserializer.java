@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Class DateDeserializer
+ * Class DateDeserializer.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

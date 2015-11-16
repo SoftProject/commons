@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.io.Serializable;
 
 /**
- * Class HtmlHashGenerator
+ * Class HtmlHashGenerator.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

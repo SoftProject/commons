@@ -3,17 +3,17 @@ package pl.com.softproject.utils.freshmail.exception.subscriber;
 import pl.com.softproject.utils.freshmail.exception.RestException;
 
 /**
- * Class AdditionalFieldIncorrectException.
+ * Class ToManySubscribersInRequestException.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public class IncorrectAdditionalFieldException extends RestException {
+public class ToManySubscribersInRequestException extends RestException {
 
-    public IncorrectAdditionalFieldException(int statusCode) {
+    public ToManySubscribersInRequestException(final int statusCode) {
         super(statusCode);
     }
 
-    public IncorrectAdditionalFieldException(int statusCode, String message) {
+    public ToManySubscribersInRequestException(final int statusCode, final String message) {
         super(statusCode, message);
     }
 }

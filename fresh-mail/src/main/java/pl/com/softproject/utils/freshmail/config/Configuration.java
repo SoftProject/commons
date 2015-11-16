@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.config;
 
 /**
- * Interface Configuration
+ * Interface Configuration.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

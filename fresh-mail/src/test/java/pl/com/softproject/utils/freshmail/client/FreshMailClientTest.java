@@ -12,12 +12,17 @@ import pl.com.softproject.utils.freshmail.config.FreshMailConfiguration;
 import pl.com.softproject.utils.freshmail.config.SubscriberConfirm;
 import pl.com.softproject.utils.freshmail.config.SubscriberState;
 import pl.com.softproject.utils.freshmail.dto.request.EmailMessage;
+import pl.com.softproject.utils.freshmail.dto.request.MultipleSubscriber;
+import pl.com.softproject.utils.freshmail.dto.request.MultipleSubscribers;
 import pl.com.softproject.utils.freshmail.dto.request.Subscriber;
 import pl.com.softproject.utils.freshmail.hash.HashGenerator;
 import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 /**
- * Class FreshMailClientTest
+ * Class FreshMailClientTest.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
@@ -26,9 +31,7 @@ import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 public class FreshMailClientTest {
 
     private Configuration configuration;
-
     private HashGenerator hashGenerator = new JsonHashGenerator();
-
     private FreshMailClient freshMailClient;
 
     @Before
@@ -49,6 +52,56 @@ public class FreshMailClientTest {
                                                    Configuration.HTTP_HEADER_API_SIGN);
 
         freshMailClient = new FreshMailClient(configuration, hashGenerator);
+        freshMailClient.setDebug(true);
+    }
+
+    @Test
+    public void testSubscriberListAdd() throws Exception {
+
+        class Configuration {
+
+            public static final String LIST_HASH = "LIST_HASH";
+            public static final String EMAIL1 = "admin1@example.com";
+            public static final String EMAIL2 = "admin2@example.com";
+            public static final String EMAIL3 = "admin3@example.com";
+        }
+
+        Subscriber subscriber1 = new Subscriber();
+        subscriber1.setEmail(Configuration.EMAIL1);
+        subscriber1.setList(Configuration.LIST_HASH);
+
+        Subscriber subscriber2 = new Subscriber();
+        subscriber2.setEmail(Configuration.EMAIL2);
+        subscriber2.setList(Configuration.LIST_HASH);
+
+        Subscriber subscriber3 = new Subscriber();
+        subscriber3.setEmail(Configuration.EMAIL3);
+        subscriber3.setList(Configuration.LIST_HASH);
+
+        Assertions.assertThat(
+                freshMailClient.subscriberAdd(Arrays.asList(subscriber1, subscriber2, subscriber3)))
+                .isTrue();
+    }
+
+    @Test
+    public void testSubscribersAdd() throws Exception {
+
+        class Configuration {
+
+            public static final String LIST_HASH = "LIST_HASH";
+            public static final String EMAIL1 = "admin1@example.com";
+            public static final String EMAIL2 = "admin2@example.com";
+        }
+
+        MultipleSubscriber multipleSubscriber1 = new MultipleSubscriber(Configuration.EMAIL1);
+        MultipleSubscriber multipleSubscriber2 = new MultipleSubscriber(Configuration.EMAIL2);
+
+        MultipleSubscribers multipleSubscribers = new MultipleSubscribers();
+        multipleSubscribers.setList(Configuration.LIST_HASH);
+        multipleSubscribers.setSubscribers(
+                new HashSet<>(Arrays.asList(multipleSubscriber1, multipleSubscriber2)));
+
+        Assertions.assertThat(freshMailClient.subscribersAdd(multipleSubscribers)).isTrue();
     }
 
     @Test
@@ -77,9 +130,6 @@ public class FreshMailClientTest {
         subscriber.setConfirm(SubscriberConfirm.CONFIRM);
         subscriber.setList(Configuration.LIST_HASH);
         subscriber.setState(SubscriberState.ACTIVE);
-
-        subscriber.addCustomField("f1", "f1");
-        subscriber.addCustomField("f2", "f2");
 
         Assertions.assertThat(freshMailClient.subscriberAdd(subscriber)).isTrue();
     }

@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 /**
- * Class HtmlHashGeneratorTest
+ * Class HtmlHashGeneratorTest.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

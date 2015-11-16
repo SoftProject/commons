@@ -3,17 +3,17 @@ package pl.com.softproject.utils.freshmail.exception.subscriber;
 import pl.com.softproject.utils.freshmail.exception.RestException;
 
 /**
- * Class AdditionalFieldIncorrectException.
+ * Class NotSetEmailToAddException.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
-public class IncorrectAdditionalFieldException extends RestException {
+public class NotSetEmailToAddException extends RestException {
 
-    public IncorrectAdditionalFieldException(int statusCode) {
+    public NotSetEmailToAddException(final int statusCode) {
         super(statusCode);
     }
 
-    public IncorrectAdditionalFieldException(int statusCode, String message) {
+    public NotSetEmailToAddException(final int statusCode, final String message) {
         super(statusCode, message);
     }
 }

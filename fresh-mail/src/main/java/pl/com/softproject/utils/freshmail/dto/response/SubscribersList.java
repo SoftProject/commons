@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Class SubscribersList
+ * Class SubscribersList.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
