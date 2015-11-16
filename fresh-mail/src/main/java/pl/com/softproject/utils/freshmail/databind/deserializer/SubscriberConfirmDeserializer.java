@@ -10,7 +10,7 @@ import pl.com.softproject.utils.freshmail.config.SubscriberConfirm;
 import java.io.IOException;
 
 /**
- * Class SubscriberConfirmDeserializer
+ * Class SubscriberConfirmDeserializer.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

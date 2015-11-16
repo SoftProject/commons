@@ -34,33 +34,13 @@ import pl.com.softproject.utils.freshmail.exception.subscriber.SubscriberExistsO
 import java.io.IOException;
 
 /**
- * Class ClientUtil
+ * Class ClientUtil.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
 public class ClientUtil {
 
     private ClientUtil() {
-    }
-
-    public static ErrorResponse errorResponse(int responseStatus, String stringResponse,
-                                              String errorLabel) throws IOException {
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        if (responseStatus == 200) {
-            return null;
-        }
-
-        ErrorResponse errorResponse = objectMapper.readValue(stringResponse, ErrorResponse.class);
-
-        if (errorResponse.getStatus().equalsIgnoreCase(errorLabel)
-            && errorResponse.getErrors() == null || errorResponse.getErrors().size() == 0) {
-
-            throw new UnknownException(0, "Unknown error!");
-        }
-
-        return errorResponse;
     }
 
     public static void catchStandardException(int responseStatus, String stringResponse,
@@ -91,6 +71,26 @@ public class ClientUtil {
             case 1004:
                 throw new AccessDeniedForControllerActionException(code, message);
         }
+    }
+
+    public static ErrorResponse errorResponse(int responseStatus, String stringResponse,
+                                              String errorLabel) throws IOException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        if (responseStatus == 200) {
+            return null;
+        }
+
+        ErrorResponse errorResponse = objectMapper.readValue(stringResponse, ErrorResponse.class);
+
+        if (errorResponse.getStatus().equalsIgnoreCase(errorLabel)
+            && errorResponse.getErrors() == null || errorResponse.getErrors().size() == 0) {
+
+            throw new UnknownException(0, "Unknown error!");
+        }
+
+        return errorResponse;
     }
 
     public static void catchSubscriberAddException(int responseStatus, String stringResponse,

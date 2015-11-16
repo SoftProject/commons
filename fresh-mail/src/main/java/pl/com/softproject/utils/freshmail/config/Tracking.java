@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.config;
 
 /**
- * Enum Tracking
+ * Enum Tracking.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

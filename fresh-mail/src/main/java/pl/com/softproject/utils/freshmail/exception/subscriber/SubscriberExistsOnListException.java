@@ -3,7 +3,7 @@ package pl.com.softproject.utils.freshmail.exception.subscriber;
 import pl.com.softproject.utils.freshmail.exception.RestException;
 
 /**
- * Class SubscriberExistsOnListException
+ * Class SubscriberExistsOnListException.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

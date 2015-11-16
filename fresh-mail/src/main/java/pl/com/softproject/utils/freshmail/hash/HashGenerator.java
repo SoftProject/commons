@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.hash;
 
 /**
- * Interface HashGenerator
+ * Interface HashGenerator.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

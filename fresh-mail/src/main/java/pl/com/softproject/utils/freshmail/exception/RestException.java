@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.exception;
 
 /**
- * Class RestException
+ * Class RestException.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

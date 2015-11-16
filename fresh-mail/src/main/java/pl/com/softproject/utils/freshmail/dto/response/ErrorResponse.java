@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class ErrorResponse
+ * Class ErrorResponse.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

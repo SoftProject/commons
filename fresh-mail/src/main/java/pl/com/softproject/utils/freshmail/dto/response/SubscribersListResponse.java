@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class SubscribersListResponse
+ * Class SubscribersListResponse.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

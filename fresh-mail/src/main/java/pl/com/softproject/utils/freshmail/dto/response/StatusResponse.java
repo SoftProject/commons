@@ -3,7 +3,7 @@ package pl.com.softproject.utils.freshmail.dto.response;
 import java.io.Serializable;
 
 /**
- * Class StatusResponse
+ * Class StatusResponse.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

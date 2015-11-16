@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.hash;
 
 /**
- * Class JsonHashGenerator
+ * Class JsonHashGenerator.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

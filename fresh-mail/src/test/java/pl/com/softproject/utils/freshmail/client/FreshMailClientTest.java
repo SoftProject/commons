@@ -17,7 +17,7 @@ import pl.com.softproject.utils.freshmail.hash.HashGenerator;
 import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 
 /**
- * Class FreshMailClientTest
+ * Class FreshMailClientTest.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
@@ -26,9 +26,7 @@ import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 public class FreshMailClientTest {
 
     private Configuration configuration;
-
     private HashGenerator hashGenerator = new JsonHashGenerator();
-
     private FreshMailClient freshMailClient;
 
     @Before

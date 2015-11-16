@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * Class StringUtil
+ * Class StringUtil.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

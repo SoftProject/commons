@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 /**
- * Class FreshMailConfigurationTest
+ * Class FreshMailConfigurationTest.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

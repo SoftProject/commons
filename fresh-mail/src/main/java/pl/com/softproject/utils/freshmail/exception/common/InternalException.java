@@ -3,7 +3,7 @@ package pl.com.softproject.utils.freshmail.exception.common;
 import pl.com.softproject.utils.freshmail.exception.RestException;
 
 /**
- * Class InternalException
+ * Class InternalException.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Class DateSerializer
+ * Class DateSerializer.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

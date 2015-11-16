@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 /**
- * Class FreshMailConfiguration
+ * Class FreshMailConfiguration.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
@@ -58,16 +58,6 @@ public class FreshMailConfiguration implements Serializable, Configuration {
     }
 
     @Override
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    @Override
-    public String getApiSecret() {
-        return apiSecret;
-    }
-
-    @Override
     public String getHttpHeaderForApiKey() {
         return httHeaderForApiKey;
     }
@@ -75,5 +65,15 @@ public class FreshMailConfiguration implements Serializable, Configuration {
     @Override
     public String getHttpHeaderForApiSign() {
         return httpHeaderForApiSign;
+    }
+
+    @Override
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    @Override
+    public String getApiSecret() {
+        return apiSecret;
     }
 }

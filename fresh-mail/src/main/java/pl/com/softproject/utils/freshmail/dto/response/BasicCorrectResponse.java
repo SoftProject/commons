@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.dto.response;
 
 /**
- * Class BasicResponse
+ * Class BasicResponse.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

@@ -30,7 +30,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 /**
- * Class FreshMailClient
+ * Class FreshMailClient.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
@@ -72,10 +72,6 @@ public class FreshMailClient implements Serializable {
 
     }
 
-    private static void debug(String message) {
-        logger.debug(String.format("fresh-mail rest client - message: [%s]", message));
-    }
-
     private static void error(String message) {
         logger.debug(String.format("fresh-mail rest client - %s", message));
     }
@@ -106,6 +102,14 @@ public class FreshMailClient implements Serializable {
         }
     }
 
+    private static void debug(String message) {
+        logger.debug(String.format("fresh-mail rest client - message: [%s]", message));
+    }
+
+    private WebResource getWebResource(String action) {
+        return client.resource(StringUtil.concatUrls(configuration.getUrl(), action));
+    }
+
     public SubscribersListResponse subscribersList() {
 
         debug("subscribersList()");
@@ -130,9 +134,10 @@ public class FreshMailClient implements Serializable {
         }
     }
 
-    public boolean subscriberAdd(String listHash, List<Subscriber> list, SubscriberConfirm confirm, SubscriberState state) {
+    public boolean subscriberAdd(String listHash, List<Subscriber> list, SubscriberConfirm confirm,
+                                 SubscriberState state) {
 
-        for(Subscriber subscriber : list) {
+        for (Subscriber subscriber : list) {
             subscriber.setConfirm(confirm);
             subscriber.setState(state);
             subscriber.setList(listHash);
@@ -140,15 +145,6 @@ public class FreshMailClient implements Serializable {
         }
 
         return true;
-    }
-
-    public boolean subscriberAdd(String listHash, Subscriber subscriber, SubscriberConfirm confirm, SubscriberState state) {
-
-        subscriber.setConfirm(confirm);
-        subscriber.setState(state);
-        subscriber.setList(listHash);
-        return subscriberAdd(subscriber);
-
     }
 
     public boolean subscriberAdd(Subscriber subscriber) {
@@ -190,6 +186,16 @@ public class FreshMailClient implements Serializable {
         }
 
         return basicResponse.getStatus().equalsIgnoreCase(OK);
+    }
+
+    public boolean subscriberAdd(String listHash, Subscriber subscriber, SubscriberConfirm confirm,
+                                 SubscriberState state) {
+
+        subscriber.setConfirm(confirm);
+        subscriber.setState(state);
+        subscriber.setList(listHash);
+
+        return subscriberAdd(subscriber);
     }
 
     public boolean mail(EmailMessage emailMessage) {
@@ -238,10 +244,6 @@ public class FreshMailClient implements Serializable {
 
     public HashGenerator getHashGenerator() {
         return hashGenerator;
-    }
-
-    private WebResource getWebResource(String action) {
-        return client.resource(StringUtil.concatUrls(configuration.getUrl(), action));
     }
 
     public void setDebug(boolean debug) {

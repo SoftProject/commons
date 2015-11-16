@@ -1,7 +1,7 @@
 package pl.com.softproject.utils.freshmail.config;
 
 /**
- * Class SubscriberConfirm
+ * Class SubscriberConfirm.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

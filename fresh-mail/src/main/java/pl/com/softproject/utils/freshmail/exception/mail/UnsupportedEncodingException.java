@@ -3,7 +3,7 @@ package pl.com.softproject.utils.freshmail.exception.mail;
 import pl.com.softproject.utils.freshmail.exception.RestException;
 
 /**
- * Class UnsupportedEncodingException
+ * Class UnsupportedEncodingException.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

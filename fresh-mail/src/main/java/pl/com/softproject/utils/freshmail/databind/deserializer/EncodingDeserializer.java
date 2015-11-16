@@ -10,7 +10,7 @@ import pl.com.softproject.utils.freshmail.config.Encoding;
 import java.io.IOException;
 
 /**
- * Class EncodingDeserializer
+ * Class EncodingDeserializer.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */

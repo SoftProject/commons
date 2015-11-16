@@ -18,7 +18,7 @@ import java.util.Map;
 import javax.validation.constraints.NotNull;
 
 /**
- * Class Subscriber
+ * Class Subscriber.
  *
  * @author Marcin Jasiński {@literal <mkjasinski@gmail.com>}
  */
@@ -79,7 +79,6 @@ public class Subscriber implements Serializable {
     public void addCustomField(String fieldName, String FieldValue) {
         customFields.put(fieldName, FieldValue);
     }
-
 
 
     @Override
