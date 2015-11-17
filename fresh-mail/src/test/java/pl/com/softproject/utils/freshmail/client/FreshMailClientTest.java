@@ -19,6 +19,7 @@ import pl.com.softproject.utils.freshmail.hash.HashGenerator;
 import pl.com.softproject.utils.freshmail.hash.JsonHashGenerator;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 
 /**
@@ -52,7 +53,6 @@ public class FreshMailClientTest {
                                                    Configuration.HTTP_HEADER_API_SIGN);
 
         freshMailClient = new FreshMailClient(configuration, hashGenerator);
-        freshMailClient.setDebug(true);
     }
 
     @Test
@@ -114,6 +114,42 @@ public class FreshMailClientTest {
     public void testSubscribersList() throws Exception {
 
         Assertions.assertThat(freshMailClient.subscribersList()).isNotNull();
+    }
+
+    @Test
+    public void testSubscriberAddManyParams() throws Exception {
+
+        class Configuration {
+
+            public static final String LIST_HASH = "LIST_HASH";
+            public static final String EMAIL = "admin@example.com";
+        }
+
+        Subscriber subscriber = new Subscriber();
+        subscriber.setEmail(Configuration.EMAIL);
+        subscriber.setList(Configuration.LIST_HASH);
+
+        Assertions.assertThat(freshMailClient.subscriberAdd(Configuration.LIST_HASH,
+                                                            Collections.singletonList(subscriber),
+                                                            SubscriberConfirm.CONFIRM,
+                                                            SubscriberState.ACTIVE)).isTrue();
+    }
+
+    @Test
+    public void testSubscriberAddOne() throws Exception {
+        class Configuration {
+
+            public static final String LIST_HASH = "LIST_HASH";
+            public static final String EMAIL = "admin@example.com";
+        }
+
+        Subscriber subscriber = new Subscriber();
+        subscriber.setEmail(Configuration.EMAIL);
+        subscriber.setList(Configuration.LIST_HASH);
+
+        Assertions.assertThat(freshMailClient.subscriberAdd(Configuration.LIST_HASH, subscriber,
+                                                            SubscriberConfirm.CONFIRM,
+                                                            SubscriberState.ACTIVE)).isTrue();
     }
 
     @Test
