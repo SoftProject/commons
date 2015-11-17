@@ -2,14 +2,14 @@ package pl.com.softproject.utils.freshmail.client;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
-import com.sun.jersey.api.client.filter.LoggingFilter;
 
 import org.apache.log4j.Logger;
-import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 import pl.com.softproject.utils.freshmail.config.Configuration;
 import pl.com.softproject.utils.freshmail.config.SubscriberConfirm;
@@ -42,7 +42,7 @@ import javax.validation.constraints.NotNull;
 public class FreshMailClient implements Serializable {
 
     public static final int SUBSCRIBERS_MAX_ELEMENTS = 100;
-    private static final Logger logger = Logger.getLogger(FreshMailClient.class);
+    private static final Logger LOGGER = Logger.getLogger(FreshMailClient.class);
     private static final String OK = "ok";
     private static final String ERROR = "error";
     private static final String PING_ACTION = "/rest/ping";
@@ -53,49 +53,28 @@ public class FreshMailClient implements Serializable {
     private final Configuration configuration;
     private final HashGenerator hashGenerator;
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private final Client client;
-    private boolean debug = false;
-    private LoggingFilter loggingFilter = new LoggingFilter(System.out);
 
     public FreshMailClient(@NotNull final Configuration configuration,
                            @NotNull final HashGenerator hashGenerator) {
 
-        logger.debug("init FreshMailClient ...");
+        LOGGER.debug("init FreshMailClient ...");
 
         this.configuration = configuration;
         this.hashGenerator = hashGenerator;
-
-        DefaultClientConfig defaultClientConfig = new DefaultClientConfig();
-        defaultClientConfig.getClasses().add(JacksonJsonProvider.class);
-
-        client = Client.create(defaultClientConfig);
-        client.setFollowRedirects(false);
-
-    }
-
-    private static void error(String message) {
-        logger.debug(String.format("fresh-mail rest client - %s", message));
     }
 
     public boolean ping() {
 
-        debug("ping()");
+        LOGGER.debug("ping()");
 
-        WebResource webResource = getWebResource(PING_ACTION);
-
-        String hash = hashGenerator
-                .generate(configuration.getApiKey(), PING_ACTION, "", configuration.getApiSecret());
-
-        ClientResponse response = webResource.type(hashGenerator.getContentType())
-                .header(configuration.getHttpHeaderForApiKey(), configuration.getApiKey())
-                .header(configuration.getHttpHeaderForApiSign(), hash).get(ClientResponse.class);
+        final RestResponse stringResponse =
+                Util.makeRequest(hashGenerator, configuration, PING_ACTION, "", HttpMethod.GET);
 
         try {
-            String stringResponse = response.getEntity(String.class);
-
-            ClientUtil.catchStandardException(response.getStatus(), stringResponse, ERROR);
-            BasicCorrectResponse basicResponse =
-                    objectMapper.readValue(stringResponse, BasicCorrectResponse.class);
+            ClientUtil.catchStandardException(stringResponse.getStatusCode(),
+                                              stringResponse.getResponse(), ERROR);
+            BasicCorrectResponse basicResponse = objectMapper
+                    .readValue(stringResponse.getResponse(), BasicCorrectResponse.class);
 
             return basicResponse.getStatus().equalsIgnoreCase(OK);
         } catch (IOException e) {
@@ -103,33 +82,19 @@ public class FreshMailClient implements Serializable {
         }
     }
 
-    private static void debug(String message) {
-        logger.debug(String.format("fresh-mail rest client - message: [%s]", message));
-    }
-
-    private WebResource getWebResource(String action) {
-        return client.resource(StringUtil.concatUrls(configuration.getUrl(), action));
-    }
-
     public SubscribersListResponse subscribersList() {
 
-        debug("subscribersList()");
+        LOGGER.debug("subscribersList()");
 
-        WebResource webResource = getWebResource(SUBSCRIBERS_LIST_ACTION);
-
-        String hash = hashGenerator.generate(configuration.getApiKey(), SUBSCRIBERS_LIST_ACTION, "",
-                                             configuration.getApiSecret());
-
-        ClientResponse response = webResource.type(hashGenerator.getContentType())
-                .header(configuration.getHttpHeaderForApiKey(), configuration.getApiKey())
-                .header(configuration.getHttpHeaderForApiSign(), hash).get(ClientResponse.class);
+        final RestResponse response =
+                Util.makeRequest(hashGenerator, configuration, SUBSCRIBERS_LIST_ACTION, "",
+                                 HttpMethod.GET);
 
         try {
-            String stringResponse = response.getEntity(String.class);
+            ClientUtil.catchStandardException(response.getStatusCode(), response.getResponse(),
+                                              ERROR);
 
-            ClientUtil.catchStandardException(response.getStatus(), stringResponse, ERROR);
-
-            return objectMapper.readValue(stringResponse, SubscribersListResponse.class);
+            return objectMapper.readValue(response.getResponse(), SubscribersListResponse.class);
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
@@ -150,38 +115,27 @@ public class FreshMailClient implements Serializable {
 
     public boolean subscriberAdd(Subscriber subscriber) {
 
-        debug("subscriberAdd()");
+        LOGGER.debug("subscriberAdd()");
 
-        WebResource webResource = getWebResource(SUBSCRIBER_ADD_ACTION);
+        String postData = Util.getDataForRequest(subscriber);
 
-        String postData;
-        try {
-            postData = StringUtil.toJson(subscriber);
-        } catch (JsonProcessingException e) {
-            throw new JsonParsingException(e.getMessage(), e);
-        }
-
-        String hash = hashGenerator
-                .generate(configuration.getApiKey(), SUBSCRIBER_ADD_ACTION, postData,
-                          configuration.getApiSecret());
-
-        ClientResponse response = webResource.type(hashGenerator.getContentType())
-                .header(configuration.getHttpHeaderForApiKey(), configuration.getApiKey())
-                .header(configuration.getHttpHeaderForApiSign(), hash)
-                .post(ClientResponse.class, postData);
-
-        String stringResponse = response.getEntity(String.class);
+        final RestResponse response =
+                Util.makeRequest(hashGenerator, configuration, SUBSCRIBER_ADD_ACTION, postData,
+                                 HttpMethod.POST);
 
         try {
-            ClientUtil.catchStandardException(response.getStatus(), stringResponse, ERROR);
-            ClientUtil.catchSubscriberAddException(response.getStatus(), stringResponse, ERROR);
+            ClientUtil.catchStandardException(response.getStatusCode(), response.getResponse(),
+                                              ERROR);
+            ClientUtil.catchSubscriberAddException(response.getStatusCode(), response.getResponse(),
+                                                   ERROR);
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
 
         BasicCorrectResponse basicResponse;
         try {
-            basicResponse = objectMapper.readValue(stringResponse, BasicCorrectResponse.class);
+            basicResponse =
+                    objectMapper.readValue(response.getResponse(), BasicCorrectResponse.class);
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
@@ -191,7 +145,7 @@ public class FreshMailClient implements Serializable {
 
     public boolean subscriberAdd(List<Subscriber> subscribers) {
 
-        debug("subscribersAdd(List<Subscriber>)");
+        LOGGER.debug("subscribersAdd(List<Subscriber>)");
 
         if (subscribers == null || subscribers.size() == 0) {
             return false;
@@ -238,38 +192,29 @@ public class FreshMailClient implements Serializable {
 
     public boolean subscribersAdd(MultipleSubscribers multipleSubscribers) {
 
-        debug("subscribersAdd(MultipleSubscribers)");
+        LOGGER.debug("subscribersAdd(MultipleSubscribers)");
 
-        WebResource webResource = getWebResource(SUBSCRIBERS_ADD_ACTION);
+        String postData = Util.getDataForRequest(multipleSubscribers);
 
-        String postData;
-        try {
-            postData = StringUtil.toJson(multipleSubscribers);
-        } catch (JsonProcessingException e) {
-            throw new JsonParsingException(e.getMessage(), e);
-        }
-
-        String hash = hashGenerator
-                .generate(configuration.getApiKey(), SUBSCRIBERS_ADD_ACTION, postData,
-                          configuration.getApiSecret());
-
-        ClientResponse response = webResource.type(hashGenerator.getContentType())
-                .header(configuration.getHttpHeaderForApiKey(), configuration.getApiKey())
-                .header(configuration.getHttpHeaderForApiSign(), hash)
-                .post(ClientResponse.class, postData);
-
-        String stringResponse = response.getEntity(String.class);
+        final RestResponse response =
+                Util.makeRequest(hashGenerator, configuration, SUBSCRIBERS_ADD_ACTION, postData,
+                                 HttpMethod.POST);
 
         try {
-            ClientUtil.catchStandardException(response.getStatus(), stringResponse, ERROR, true);
-            ClientUtil.catchSubscribersAddException(response.getStatus(), stringResponse, ERROR);
+            ClientUtil
+                    .catchStandardException(response.getStatusCode(), response.getResponse(), ERROR,
+                                            true);
+            ClientUtil
+                    .catchSubscribersAddException(response.getStatusCode(), response.getResponse(),
+                                                  ERROR);
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
 
         SubscriberResponse basicResponse;
         try {
-            basicResponse = objectMapper.readValue(stringResponse, SubscriberResponse.class);
+            basicResponse =
+                    objectMapper.readValue(response.getResponse(), SubscriberResponse.class);
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
@@ -289,37 +234,26 @@ public class FreshMailClient implements Serializable {
 
     public boolean mail(EmailMessage emailMessage) {
 
-        debug("mail()");
+        LOGGER.debug("mail()");
 
-        WebResource webResource = getWebResource(MAIL_ACTION);
+        String postData = Util.getDataForRequest(emailMessage);
 
-        String postData;
-        try {
-            postData = StringUtil.toJson(emailMessage);
-        } catch (JsonProcessingException e) {
-            throw new JsonParsingException(e.getMessage(), e);
-        }
-
-        String hash = hashGenerator.generate(configuration.getApiKey(), MAIL_ACTION, postData,
-                                             configuration.getApiSecret());
-
-        ClientResponse response = webResource.type(hashGenerator.getContentType())
-                .header(configuration.getHttpHeaderForApiKey(), configuration.getApiKey())
-                .header(configuration.getHttpHeaderForApiSign(), hash)
-                .post(ClientResponse.class, postData);
-
-        String stringResponse = response.getEntity(String.class);
+        final RestResponse response =
+                Util.makeRequest(hashGenerator, configuration, MAIL_ACTION, postData,
+                                 HttpMethod.POST);
 
         try {
-            ClientUtil.catchStandardException(response.getStatus(), stringResponse, ERROR);
-            ClientUtil.catchMailException(response.getStatus(), stringResponse, ERROR);
+            ClientUtil.catchStandardException(response.getStatusCode(), response.getResponse(),
+                                              ERROR);
+            ClientUtil.catchMailException(response.getStatusCode(), response.getResponse(), ERROR);
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
 
         BasicCorrectResponse basicResponse;
         try {
-            basicResponse = objectMapper.readValue(stringResponse, BasicCorrectResponse.class);
+            basicResponse =
+                    objectMapper.readValue(response.getResponse(), BasicCorrectResponse.class);
         } catch (IOException e) {
             throw new JsonParsingException(e.getMessage(), e);
         }
@@ -335,16 +269,56 @@ public class FreshMailClient implements Serializable {
         return hashGenerator;
     }
 
-    public void setDebug(boolean debug) {
+    static class RestResponse {
 
-        this.debug = debug;
+        private final String response;
+        private final int statusCode;
 
-        if (debug) {
-            logger.debug("debug is enabled");
-            client.addFilter(loggingFilter);
-        } else {
-            logger.debug("debug is disabled");
-            client.removeFilter(loggingFilter);
+        public RestResponse(final String response, final int statusCode) {
+            this.response = response;
+            this.statusCode = statusCode;
+        }
+
+        public String getResponse() {
+            return response;
+        }
+
+        public int getStatusCode() {
+            return statusCode;
+        }
+    }
+
+    private static class Util {
+
+        private Util() {
+        }
+
+        public static String getDataForRequest(Object object) {
+            try {
+                return StringUtil.toJson(object);
+            } catch (JsonProcessingException e) {
+                throw new JsonParsingException(e.getMessage(), e);
+            }
+        }
+
+        private static RestResponse makeRequest(HashGenerator hashGenerator,
+                                                Configuration configuration, String actionUrl,
+                                                String data, HttpMethod method) {
+            String hash = hashGenerator.generate(configuration.getApiKey(), actionUrl, data,
+                                                 configuration.getApiSecret());
+
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.add(configuration.getHttpHeaderForApiKey(), configuration.getApiKey());
+            httpHeaders.add(configuration.getHttpHeaderForApiSign(), hash);
+            httpHeaders.setContentType(MediaType.valueOf(hashGenerator.getContentType()));
+
+            HttpEntity<String> entity = new HttpEntity<>(data, httpHeaders);
+
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<String> exchange = restTemplate
+                    .exchange(configuration.getUrl() + actionUrl, method, entity, String.class);
+
+            return new RestResponse(exchange.getBody(), exchange.getStatusCode().value());
         }
     }
 }
