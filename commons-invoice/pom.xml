@@ -4,12 +4,12 @@
     <parent>
         <groupId>pl.com.softproject.utils</groupId>
         <artifactId>java-common-utilities</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.7-SNAPSHOT</version>
     </parent>
     
     <groupId>pl.com.softproject.utils.invoice</groupId>
     <artifactId>commons-invoice</artifactId>
-    <version>1.3</version>
+    <version>1.4-SNAPSHOT</version>
     <name>commons-invoice</name>  
   
     <build>
