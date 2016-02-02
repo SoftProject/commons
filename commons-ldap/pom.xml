@@ -4,7 +4,7 @@
     <parent>
         <groupId>pl.com.softproject.utils</groupId>
         <artifactId>java-common-utilities</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.7</version>
     </parent>
     <artifactId>commons-ldap</artifactId>
     <packaging>jar</packaging>
