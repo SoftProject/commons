@@ -4,11 +4,11 @@
   <parent>
     <groupId>pl.com.softproject.utils</groupId>
     <artifactId>java-common-utilities</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8-SNAPSHOT</version>
   </parent>
   <groupId>pl.com.softproject.utils</groupId>
   <artifactId>payu</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3-SNAPSHOT</version>
   <name>payu</name>
   <url>http://maven.apache.org</url>
   <properties>

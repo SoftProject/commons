@@ -3,7 +3,7 @@
     <parent>
         <artifactId>java-common-utilities</artifactId>
         <groupId>pl.com.softproject.utils</groupId>
-        <version>1.0.7</version>
+        <version>1.0.8-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>pl.com.softproject.utils</groupId>
             <artifactId>przelewy24</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.8-SNAPSHOT</version>
         </dependency>
 
         <dependency>
