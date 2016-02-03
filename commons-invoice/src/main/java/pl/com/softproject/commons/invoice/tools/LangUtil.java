@@ -1,6 +1,3 @@
-/*
- * Copyright 2013-04-26 the original author or authors.
- */
 package pl.com.softproject.commons.invoice.tools;
 
 import java.io.IOException;
@@ -10,7 +7,6 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- *
  * @author Adrian Lapierre <alapierre@softproject.com.pl>
  */
 public class LangUtil {
@@ -26,8 +22,9 @@ public class LangUtil {
 
             try {
                 String messagesFileName = fileName + lang + ".properties";
-                final InputStream resource = getClass().getClassLoader().getResourceAsStream(messagesFileName);
-                if(resource != null) {
+                final InputStream resource =
+                        getClass().getClassLoader().getResourceAsStream(messagesFileName);
+                if (resource != null) {
                     pr.load(resource);
                 } else {
                     throw new RuntimeException("brak pliku języka " + lang);

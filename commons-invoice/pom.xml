@@ -1,28 +1,30 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>pl.com.softproject.utils</groupId>
         <artifactId>java-common-utilities</artifactId>
         <version>1.0.8-SNAPSHOT</version>
     </parent>
-    
+
     <groupId>pl.com.softproject.utils.invoice</groupId>
     <artifactId>commons-invoice</artifactId>
     <version>1.5-SNAPSHOT</version>
-    <name>commons-invoice</name>  
-  
+    <name>commons-invoice</name>
+
     <build>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>false</filtering>           
+                <filtering>false</filtering>
             </resource>
             <resource>
                 <directory>src/main/xsd</directory>
             </resource>
         </resources>
-        <plugins>          
+        <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
@@ -38,12 +40,12 @@
                 <configuration>
                     <generateDirectory>${basedir}/src/main/gen</generateDirectory>
                 </configuration>
-            </plugin> 
-            
+            </plugin>
+
         </plugins>
     </build>
-  
-  
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -64,7 +66,7 @@
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
-            <version>4.5.0</version>
+            <version>5.6.0</version>
             <exclusions>
                 <exclusion>
                     <artifactId>bcmail-jdk14</artifactId>
@@ -88,13 +90,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        
+
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-fonts</artifactId>
-            <version>4.5.0</version>
+            <version>5.6.1</version>
         </dependency>
-       
+
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
@@ -123,7 +125,7 @@
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-bridge</artifactId>
-            <version>1.7</version>                 
+            <version>1.7</version>
             <exclusions>
                 <exclusion>
                     <artifactId>xalan</artifactId>

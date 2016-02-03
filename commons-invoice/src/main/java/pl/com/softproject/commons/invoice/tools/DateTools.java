@@ -1,29 +1,26 @@
-/*
- * Copyright 2012-06-05 the original author or authors.
- */
 package pl.com.softproject.commons.invoice.tools;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
- *
  * @author Adrian Lapierre <adrian@softproject.com.pl>
  */
 public class DateTools {
-    
+
     private static final int MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
 
     /**
-     * Calculates the number of days between start and end dates, taking
-     * into consideration leap years, year boundaries etc.
+     * Calculates the number of days between start and end dates, taking into consideration leap
+     * years, year boundaries etc.
      *
      * @param start the start date
-     * @param end the end date, must be later than the start date
+     * @param end   the end date, must be later than the start date
      * @return the number of days between the start and end dates
      */
     public static long countDaysBetween(Date start, Date end) {
@@ -50,30 +47,47 @@ public class DateTools {
 
         return (endTime - startTime) / MILLISECONDS_IN_DAY;
     }
-    
-    public Date convertXMLCalendar(XMLGregorianCalendar calendar) {
-        return calendar.toGregorianCalendar().getTime();
-    }
 
+    /**
+     * Convert Date to XMLGregorianCalendar.
+     *
+     * @param date date to convert
+     */
     public static XMLGregorianCalendar toXMLCalendar(Date date) {
-        
-        GregorianCalendar c = new GregorianCalendar(); 
+
+        GregorianCalendar c = new GregorianCalendar();
         c.setTime(date);
-        
-        try {          
-            XMLGregorianCalendar xmlCal = DatatypeFactory.newInstance().newXMLGregorianCalendarDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH)+1, c.get(Calendar.DATE), 0);
+
+        try {
+            XMLGregorianCalendar xmlCal = DatatypeFactory.newInstance()
+                    .newXMLGregorianCalendarDate(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1,
+                                                 c.get(Calendar.DATE), 0);
             return xmlCal;
         } catch (DatatypeConfigurationException ex) {
             return null;
         }
     }
-    
+
+    /**
+     * Adding days to date.
+     *
+     * @param start start date
+     * @param days  days to add
+     */
     public static Date addDaysToDate(Date start, int days) {
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(start);
         calendar.add(Calendar.DAY_OF_MONTH, days);
-        
+
         return calendar.getTime();
     }
-    
+
+    /**
+     * Convert XMLGregorianCalendar to Date.
+     *
+     * @param calendar XMLGregorianCalendar date
+     */
+    public Date convertXMLCalendar(XMLGregorianCalendar calendar) {
+        return calendar.toGregorianCalendar().getTime();
+    }
 }

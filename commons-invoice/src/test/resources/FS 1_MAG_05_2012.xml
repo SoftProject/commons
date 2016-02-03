@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:invoice xmlns:ns2="http://www.softproject.com.pl/commons/model/invoice" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ns2:invoice xmlns:ns2="http://www.softproject.com.pl/commons/model/invoice"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.softproject.com.pl/commons/model/invoice http://schema.softproject.com.pl/commons-invoice/invoice.xsd">
-    <seller>SoftProject Sp. z o.o.
-Warszawska 109  
-05-092 Łomianki
-NIP: PL xxx-xxx-xx-xx</seller>
-    <buyer>Company
-145, street 
-75006 Paris
-NIP: FR xxxxxxxxxx</buyer>
-    <place-of-issue></place-of-issue>
+    <seller>
+        <seller-name>firma 1</seller-name>
+        <seller-street>street</seller-street>
+        <seller-house-number>1/2</seller-house-number>
+        <seller-post-code>00-001</seller-post-code>
+        <seller-city>Test</seller-city>
+        <seller-taxId>222-222-22-22</seller-taxId>
+        <seller-account>123456789012345678901234</seller-account>
+    </seller>
+    <buyer>
+        <buyer-name>firma 2</buyer-name>
+        <buyer-street>street</buyer-street>
+        <buyer-house-number>3/2</buyer-house-number>
+        <buyer-post-code>00-002</buyer-post-code>
+        <buyer-city>Test2</buyer-city>
+        <buyer-taxId>222-222-22-11</buyer-taxId>
+        <buyer-account>123456789012345678904321</buyer-account>
+    </buyer>
+    <place-of-issue/>
     <issue-date>2012-05-06Z</issue-date>
     <sell-date>2012-05-06Z</sell-date>
     <invoice-number>FS 1/05/2012</invoice-number>
@@ -30,8 +41,11 @@ NIP: FR xxxxxxxxxx</buyer>
             <net-amount>1675.2</net-amount>
             <foreign-net-amount>400.0</foreign-net-amount>
             <vat-amount>0.0</vat-amount>
-            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1675.2</gross-amount>
-            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">400.0</foreign-gross-amount>
+            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1675.2
+            </gross-amount>
+            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">
+                400.0
+            </foreign-gross-amount>
             <foreign-vat-amount>11.0</foreign-vat-amount>
         </item>
         <item>
@@ -50,8 +64,11 @@ NIP: FR xxxxxxxxxx</buyer>
             <net-amount>1465.8</net-amount>
             <foreign-net-amount>350.0</foreign-net-amount>
             <vat-amount>0.0</vat-amount>
-            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1465.8</gross-amount>
-            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">350.0</foreign-gross-amount>
+            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">1465.8
+            </gross-amount>
+            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">
+                350.0
+            </foreign-gross-amount>
             <foreign-vat-amount>11.0</foreign-vat-amount>
         </item>
         <item>
@@ -70,8 +87,11 @@ NIP: FR xxxxxxxxxx</buyer>
             <net-amount>3350.4</net-amount>
             <foreign-net-amount>800.0</foreign-net-amount>
             <vat-amount>0.0</vat-amount>
-            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">3350.4</gross-amount>
-            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">800.0</foreign-gross-amount>
+            <gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">3350.4
+            </gross-amount>
+            <foreign-gross-amount xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:double">
+                800.0
+            </foreign-gross-amount>
             <foreign-vat-amount>11.0</foreign-vat-amount>
         </item>
     </items>
@@ -80,7 +100,8 @@ NIP: FR xxxxxxxxxx</buyer>
         <currency>PLN</currency>
         <foreign-currency>EUR</foreign-currency>
         <currency-rate>4.188</currency-rate>
-        <total-amount-in-words>cztery tysiące osiemset czterdzieści EUR 0/100</total-amount-in-words>
+        <total-amount-in-words>cztery tysiące osiemset czterdzieści EUR 0/100
+        </total-amount-in-words>
         <left-to-pay>4840.0</left-to-pay>
         <payment-date>2012-06-05Z</payment-date>
         <days-to-pay>0</days-to-pay>
