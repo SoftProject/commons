@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.springframework.core.io.ClassPathResource;
 
+import java.awt.*;
 import java.io.File;
 
 /**
@@ -24,6 +25,8 @@ public class PrintServiceImplTest {
         File file = File.createTempFile("invoice", ".pdf");
         printServiceImpl.exportPDFi18n(new File("src/test/resources/FS 1_MAG_05_2012.xml"),
                                        file.getAbsolutePath(), "pl_PL");
+
+        Desktop.getDesktop().open(file);
     }
 
     @Test

@@ -3,6 +3,16 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://www.softproject.com.pl/commons/model/invoice"
            targetNamespace="http://www.softproject.com.pl/commons/model/invoice">
+
+    <xs:simpleType name="currencyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="PLN"/>
+            <xs:enumeration value="USD"/>
+            <xs:enumeration value="GBP"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:element name="invoice">
         <xs:annotation>
             <xs:documentation>Główny element dokumentu</xs:documentation>
@@ -196,6 +206,13 @@
                                                 </xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
+                                        <xs:element name="tax-type" type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    typ stawki VAT
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
                                         <xs:element name="vat-rate" type="xs:double">
                                             <xs:annotation>
                                                 <xs:documentation>wartość podatku w kraju wystwienia
@@ -367,6 +384,138 @@
                                     <xs:documentation>stawka podatku</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
+
+                            <xs:element name="tax-summary" minOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>podsumowanie podatku VAT</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                    <xs:sequence>
+
+                                        <xs:element name="tax-23" minOccurs="1" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    wartość podatku dla 23% VAT
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="netto" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                    <xs:element name="tax" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <xs:element name="tax-8" minOccurs="1" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    wartość podatku dla 8% VAT
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="netto" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                    <xs:element name="tax" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <xs:element name="tax-7" minOccurs="1" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    wartość podatku dla 7% VAT
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="netto" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                    <xs:element name="tax" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <xs:element name="tax-4" minOccurs="1" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    wartość podatku dla 4% VAT
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="netto" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                    <xs:element name="tax" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <xs:element name="tax-np" minOccurs="1" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    wartość podatku dla NP
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="netto" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                    <xs:element name="tax" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <xs:element name="tax-zw" minOccurs="1" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>
+                                                    wartość podatku dla ZW
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="netto" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                    <xs:element name="tax" minOccurs="1"
+                                                                maxOccurs="1"
+                                                                type="xs:double">
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -440,12 +589,4 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:simpleType name="currencyType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="EUR"/>
-            <xs:enumeration value="PLN"/>
-            <xs:enumeration value="USD"/>
-            <xs:enumeration value="GBP"/>
-        </xs:restriction>
-    </xs:simpleType>
 </xs:schema>

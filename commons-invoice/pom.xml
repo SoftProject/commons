@@ -11,7 +11,7 @@
 
     <groupId>pl.com.softproject.utils.invoice</groupId>
     <artifactId>commons-invoice</artifactId>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.6-SNAPSHOT</version>
     <name>commons-invoice</name>
 
     <build>
