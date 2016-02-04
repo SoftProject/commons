@@ -1,5 +1,6 @@
 package pl.com.softproject.commons.invoice;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +10,9 @@ import pl.com.softproject.commons.invoice.util.InvoiceUtil;
 
 import java.awt.*;
 import java.io.File;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Class XsltTest.
@@ -25,8 +28,14 @@ public class XsltTest implements Serializable {
 
         File efaktura = File.createTempFile("efaktura", ".xml");
 
-        InvoiceUtil.transformInvoice("xslt/invoice-to-efaktura.xslt", "xslt/actual-invoice.xml",
-                                     efaktura);
+        InputStream inputStream =
+                getClass().getClassLoader().getResourceAsStream("xslt/actual-invoice.xml");
+
+        File xmlFile = File.createTempFile(UUID.randomUUID().toString(), ".xml");
+
+        FileUtils.copyInputStreamToFile(inputStream, xmlFile);
+
+        InvoiceUtil.transformInvoice("xslt/invoice-to-efaktura.xslt", xmlFile, efaktura);
 
         Desktop.getDesktop().open(efaktura);
     }
