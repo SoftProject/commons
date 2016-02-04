@@ -47,6 +47,7 @@
                 400.0
             </foreign-gross-amount>
             <foreign-vat-amount>11.0</foreign-vat-amount>
+            <tax-type>23%</tax-type>
         </item>
         <item>
             <no>2</no>
@@ -70,6 +71,7 @@
                 350.0
             </foreign-gross-amount>
             <foreign-vat-amount>11.0</foreign-vat-amount>
+            <tax-type>23%</tax-type>
         </item>
         <item>
             <no>3</no>
@@ -93,6 +95,7 @@
                 800.0
             </foreign-gross-amount>
             <foreign-vat-amount>11.0</foreign-vat-amount>
+            <tax-type>23%</tax-type>
         </item>
     </items>
     <summary>
@@ -112,5 +115,31 @@
         <foreign-tax-value>0.0</foreign-tax-value>
         <gross-value>20269.92</gross-value>
         <foreign-gross-value>4840.0</foreign-gross-value>
+        <tax-summary>
+            <tax-23>
+                <netto>100</netto>
+                <tax>23</tax>
+            </tax-23>
+            <tax-8>
+                <netto>100</netto>
+                <tax>8</tax>
+            </tax-8>
+            <tax-7>
+                <netto>100</netto>
+                <tax>7</tax>
+            </tax-7>
+            <tax-4>
+                <netto>100</netto>
+                <tax>4</tax>
+            </tax-4>
+            <tax-np>
+                <netto>100</netto>
+                <tax>0</tax>
+            </tax-np>
+            <tax-zw>
+                <netto>100</netto>
+                <tax>0</tax>
+            </tax-zw>
+        </tax-summary>
     </summary>
 </ns2:invoice>
